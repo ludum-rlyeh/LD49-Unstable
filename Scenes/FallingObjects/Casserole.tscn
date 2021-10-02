@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/FallingObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Objects/Casserole.png" type="Texture" id=2]
+
+[node name="Casserole" instance=ExtResource( 1 )]
+mass = 3.0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+position = Vector2( 0, -1.19209e-07 )
+scale = Vector2( 0.025, 0.025 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+position = Vector2( 0, 12.5886 )
+scale = Vector2( 1.41881, 1.65025 )
+polygon = PoolVector2Array( -3.57372, -9.58781, 0.204602, -10.7025, 8.65025, -15.2248, 9.6504, -14.6197, 1.46404, -10.2248, 3.09391, -6.62601, -1.31413, -4.52409, -5.79626, -3.82345, -7.01865, -7.23111 )
