@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/LevelTest.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Popper.tscn" type="PackedScene" id=3]
 
 [node name="LevelTest" type="Node2D"]
 script = ExtResource( 2 )
@@ -10,10 +11,5 @@ script = ExtResource( 2 )
 position = Vector2( 515.905, 557.178 )
 speed = Vector2( 128, 0 )
 
-[node name="Zone" type="Node2D" parent="."]
-
-[node name="Min" type="Position2D" parent="Zone"]
-position = Vector2( 204.016, 65.9265 )
-
-[node name="Max" type="Position2D" parent="Zone"]
-position = Vector2( 453.467, 271.724 )
+[node name="Popper" parent="." instance=ExtResource( 3 )]
+position = Vector2( 525.513, 40.7348 )
