@@ -1,7 +1,7 @@
 extends Position2D
 
 export var speed = Vector2(100.0,0.0)
-export var seconds_between_pops = 10
+export var seconds_between_pops = 1
 export (float, 0, 1) var range_viewport_ratio_patrol = 0.66
 
 var _falling_objects_path = "res://Scenes/FallingObjects/"
@@ -10,6 +10,8 @@ var _current_id = 0
 
 var _can_drop = false
 var _next_object : RigidBody2D = null
+
+var _new_pos = null
 
 
 onready var _drone = $StaticBody2D
@@ -40,9 +42,18 @@ func _ready():
 	randomize()
 
 func _process(delta):
-	_drone.position += speed * delta
-	if _drone.global_position.x < _min_x or _drone.global_position.x > _max_x :
-		speed.x *= -1.0
+	if _new_pos != null :
+		if self.position.distance_to(_new_pos) > 10.0 :
+			self.position = self.position.linear_interpolate(_new_pos, delta)
+		else:
+			Signals.emit_signal("height_updated")
+			_new_pos = null
+	else:
+		_drone.position += speed * delta
+		if _drone.global_position.x < _min_x or _drone.global_position.x > _max_x :
+			speed.x *= -1.0
+	
+	
 
 func pop_object_with_initial_position():
 	if _can_drop :
@@ -63,4 +74,7 @@ func on_timer_timeout():
 	add_child(_next_object)
 	_pin.set_node_b(_next_object.get_path())
 	_can_drop = true
+
+func update_height(pos):
+	_new_pos = pos
 	

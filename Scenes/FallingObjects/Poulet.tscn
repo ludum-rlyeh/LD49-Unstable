@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/FallingObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Objects/poulet.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.87068
+height = 9.12
+
+[node name="Poulet" instance=ExtResource( 1 )]
+mass = 1.0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+position = Vector2( 0, -1.19209e-07 )
+scale = Vector2( 0.035, 0.035 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+visible = false
+position = Vector2( 0.479301, 12.4309 )
+scale = Vector2( 1.41881, 1.65025 )
+polygon = PoolVector2Array( -18.6281, -6.04775, -13.0752, -13.7944, -9.6773, -13.004, -9.56537, -7.53404, 11.2842, -7.39892, 12.9605, -14.8754, 15.8941, -14.7853, 19.9278, -6.04775, 16.2608, 2.50964, 12.1747, 2.28444, 11.127, -5.14697, -9.51298, -5.50729, -10.5607, 2.82491, -12.5514, 3.00507 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2( -1.10665, 0 )
+rotation = 1.5708
+shape = SubResource( 1 )

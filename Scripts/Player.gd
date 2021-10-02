@@ -1,22 +1,22 @@
 extends KinematicBody2D
 var x = 0
-var y = 0
+var _speed_scale = 0
 export (Vector2) var speed = Vector2(1, 0)
 
 func _init():
 	set_process(true)
 
-func _process(delta):
+func _physics_process(delta):
 	if Input.is_action_pressed("ui_shift"):
-		y = 0.5
+		_speed_scale = 0.5
 	elif !Input.is_action_pressed("ui_shift"):
-		y = 1
+		_speed_scale = 1
 	if Input.is_action_pressed("ui_right"):
-		x += y * 2
+		x += _speed_scale * 2
 	elif Input.is_action_pressed("ui_left"):
-		x -= y * 2
+		x -= _speed_scale * 2
 	elif (x < 0):
 			x += 1
 	elif (x > 0):
 			x -= 1
-	position += 0.05 * x * speed * delta
+	move_and_collide(0.05 * x * speed * delta)

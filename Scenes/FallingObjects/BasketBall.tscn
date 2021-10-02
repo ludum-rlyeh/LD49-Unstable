@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/FallingObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Objects/BallonBasket.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 11.6663
+
+[node name="BasketBall" instance=ExtResource( 1 )]
+mass = 1.0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+position = Vector2( -0.5, -1.593 )
+scale = Vector2( 0.03, 0.03 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+visible = false
+position = Vector2( 0.479301, 12.4309 )
+scale = Vector2( 1.41881, 1.65025 )
+polygon = PoolVector2Array( -11.6149, 2.16276, -13.5924, -11.8893, -0.760855, -14.1739, 12.8399, -13.242, 10.9519, 1.93821 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource( 1 )
