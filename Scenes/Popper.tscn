@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Popper.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.60734
 
 [node name="Popper" type="Position2D"]
 script = ExtResource( 1 )
@@ -9,6 +12,14 @@ script = ExtResource( 1 )
 one_shot = true
 autostart = true
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 color = Color( 0.956863, 0.027451, 0.027451, 1 )
 polygon = PoolVector2Array( -1.47951, -0.1409, -0.365887, 1.86362, -0.365887, 1.86362, 1.30455, -0.0295372, 0.0795631, -1.25452 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="StaticBody2D"]
+node_a = NodePath("..")

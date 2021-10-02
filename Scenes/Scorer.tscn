@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Scorer.gd" type="Script" id=1]
+
+[node name="Scorer" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 0 )
+collision_mask = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 1, 0, 0, 1 )
+polygon = PoolVector2Array( -67.6119, -1.02867, -25.1376, -23.6816, -0.596848, -24.1536, -16.1708, -0.0847931, -1.06879, 20.2085, -29.8569, 20.6805 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -45.306
+margin_top = -3.77548
+margin_right = -5.30597
+margin_bottom = 10.2245
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
