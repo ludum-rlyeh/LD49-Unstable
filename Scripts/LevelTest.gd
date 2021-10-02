@@ -1,9 +1,11 @@
 extends Node2D
 
 var _current_height = 0
+var update_height = false
 
 func _ready():
 	_current_height = get_viewport_rect().size.y
+	Signals.connect("height_updated", self, "on_height_updated")
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
@@ -32,14 +34,19 @@ func _add_falling_object(falling_object : RigidBody2D, init_global_position : Ve
 
 func _process(delta):
 	
-	var new_pos = $Popper.position
-	if $Scorer.position.y < _current_height / 4.0:
-		new_pos.y -= _current_height
-		_current_height *= 2.0
-	elif _current_height > get_viewport_rect().size.y and $Scorer.position.y > 3.0 * _current_height / 4.0 :
-		_current_height /= 2.0
-		new_pos.y += _current_height
+	if not update_height :
+		var new_pos = $Popper.position
+		if abs($Scorer.position.y - $Popper.position.y) < _current_height / 3.0:
+			new_pos.y -= _current_height
+			_current_height *= 2.0
+		elif _current_height > get_viewport_rect().size.y and abs($Scorer.position.y - $Popper.position.y)  > 3.0 * _current_height / 4.0 :
+			_current_height /= 2.0
+			new_pos.y += _current_height
 
-	if new_pos != $Popper.position:
-		Signals.emit_signal("popper_height_changed", _current_height)
-		$Popper.update_height(new_pos)
+		if new_pos != $Popper.position:
+			update_height = true
+			Signals.emit_signal("popper_height_changed", _current_height)
+			$Popper.update_height(new_pos)
+
+func on_height_updated():
+	update_height = false

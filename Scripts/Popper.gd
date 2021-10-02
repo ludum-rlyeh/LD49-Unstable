@@ -1,7 +1,7 @@
 extends Position2D
 
 export var speed = Vector2(100.0,0.0)
-export var seconds_between_pops = 10
+export var seconds_between_pops = 1
 export (float, 0, 1) var range_viewport_ratio_patrol = 0.66
 
 var _falling_objects_path = "res://Scenes/FallingObjects/"
@@ -46,6 +46,7 @@ func _process(delta):
 		if self.position.distance_to(_new_pos) > 10.0 :
 			self.position = self.position.linear_interpolate(_new_pos, delta)
 		else:
+			Signals.emit_signal("height_updated")
 			_new_pos = null
 	else:
 		_drone.position += speed * delta
