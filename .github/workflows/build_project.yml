@@ -7,7 +7,7 @@ jobs:
   Build-HTML5:
     runs-on: ubuntu-latest
     env:
-      GODOT: Godot_v3.3.4-stable_linux_headless.64.zip
+      GODOT: Godot_v3.3.4-stable_linux_headless.64
     steps:
       - run: |
           echo "GIT_SHA=${GITHUB_SHA}" >> $GITHUB_ENV
