@@ -1,6 +1,7 @@
 extends Position2D
 
-export var speed = 100
+export var speed = Vector2(100.0,0.0)
+
 export var seconds_between_pops = 10
 
 var _falling_objects_path = "res://Scenes/FallingObjects/"
@@ -27,11 +28,12 @@ func _init():
 
 func _ready():
 	$Timer.connect("timeout", self, "on_timer_timeout")
-	$Timer.start(seconds_between_pops)
 	randomize()
 
 func _process(delta):
-	pass
+	self.position += speed * delta
+	if self.position.x < get_viewport_rect().size.x / 4.0 or self.position.x > 3.0 * get_viewport_rect().size.x / 4.0 :
+		speed.x *= -1.0
 
 func pop_object():
 	if _can_drop :

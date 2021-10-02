@@ -6,3 +6,9 @@
 script = ExtResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.956863, 0.027451, 0.027451, 1 )
+polygon = PoolVector2Array( -1.47951, -0.1409, -0.365887, 1.86362, -0.365887, 1.86362, 1.30455, -0.0295372, 0.0795631, -1.25452 )
