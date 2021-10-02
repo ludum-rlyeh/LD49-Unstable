@@ -2,10 +2,6 @@ Title: Play the game
 URL:
 save_as: index.html
 
-## Play the LD49-Unstable
-
-[Current builds]({filename}pages/builds.md)
-
 ## Technical overview
 
 The source code of the game is open source (GPL3) and available on [github](https://github.com/ludum-rlyeh/LD49_Unstable).

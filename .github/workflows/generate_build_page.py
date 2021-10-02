@@ -1,8 +1,7 @@
 import sys
 from pathlib import Path
 
-template = """
-# Builds
+template = """Title: Builds
 
 {}
 """
@@ -13,7 +12,7 @@ folder = sys.argv[1]
 generated_list = ""
 
 for path in Path(folder).rglob("*/index.html"):
-    static_path = str(path).split("/")[1:]
+    static_path = str(path).split("/")[2:]
 
     generated_list += "- " + link_tmpl.format(
         static_path[-3] + " - " + static_path[-2],
