@@ -2,6 +2,7 @@
 
 [sub_resource type="PhysicsMaterial" id=1]
 rough = true
+bounce = 0.1
 absorbent = true
 
 [node name="FallingObject" type="RigidBody2D"]
