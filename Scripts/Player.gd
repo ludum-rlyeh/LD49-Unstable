@@ -9,7 +9,7 @@ func _init():
 func _process(delta):
 	if Input.is_action_pressed("ui_shift"):
 		y = 0.5
-	elif !Input.is_action_pressed("ui_down"):
+	elif !Input.is_action_pressed("ui_shift"):
 		y = 1
 	if Input.is_action_pressed("ui_right"):
 		x += y * 2
