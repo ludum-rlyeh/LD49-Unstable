@@ -58,8 +58,9 @@ jobs:
       - run: /tmp/${GODOT} --export HTML5 _build/LD${LD}-$(git rev-parse --short "$GITHUB_SHA").html
       - run: cd _build && ln -s LD${LD}-$(git rev-parse --short "$GITHUB_SHA").html index.html
       - run: |
-              [ -d site/content/games/${GIT_BRANCH}/ ] || mkdir -p site/content/games/${GIT_BRANCH}/
-              mv _build/* site/content/games/${GIT_BRANCH}/
+              [ -d site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/ ] || mkdir -p site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
+              mv _build/* site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
+              python .github/workflows/generate_build_page.py . > site/content/pages/builds.md
               pip install -r site/requirements.txt
               tree site
               cd site && make publish
