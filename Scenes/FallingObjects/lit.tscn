@@ -4,6 +4,7 @@
 
 [node name="FallingObject" instance=ExtResource( 1 )]
 mass = 8.19
+can_sleep = true
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 position = Vector2( -64, 32 )
