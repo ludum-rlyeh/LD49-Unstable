@@ -1,6 +1,9 @@
-extends Node2D
+extends KinematicBody2D
 
 export (Vector2) var speed = Vector2(20, 0)
+
+func _init():
+	set_process(true)
 
 func _process(delta):
 	if Input.is_action_pressed("ui_right"):
