@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/FallingObject.tscn" type="PackedScene" id=1]
+
+[node name="FallingObject" instance=ExtResource( 1 )]
+mass = 4.29
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+position = Vector2( -10.3226, -2.43229 )
+scale = Vector2( 1.41881, 1.65025 )
+polygon = PoolVector2Array( -15.8238, -0.525303, -15.6663, -15.8018, 14.4143, -15.6444, 14.7293, -0.210323 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." index="1"]
+position = Vector2( -9.43737, -0.649628 )
+scale = Vector2( 1.59753, 1.81336 )
+polygon = PoolVector2Array( -7.84488, -20.9421, -0.442844, -15.3512, 6.48672, -21.0996, -0.442844, -15.9025 )
