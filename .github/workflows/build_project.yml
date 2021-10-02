@@ -55,7 +55,7 @@ jobs:
               EOF
 
       - run: echo "export the project"
-      - run: /tmp/${GODOT} --export HTML5 _build/LD48-$(git rev-parse --short "$GITHUB_SHA").html
+      - run: /tmp/${GODOT} --export HTML5 _build/LD${LD}-$(git rev-parse --short "$GITHUB_SHA").html
       - run: cd _build && ln -s LD${LD}-$(git rev-parse --short "$GITHUB_SHA").html index.html
       - run: |
               [ -d site/content/games/${GIT_BRANCH}/ ] || mkdir -p site/content/games/${GIT_BRANCH}/
