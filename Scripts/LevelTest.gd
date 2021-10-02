@@ -1,6 +1,6 @@
 extends Node2D
 
-var _falling_object_resource = preload("res://Scenes/FallingObject.tscn")
+var _falling_object_resource = preload("res://Scenes/FallingObjects/Chaise.tscn")
 onready var _zone = $Zone
 
 func _process(delta):
