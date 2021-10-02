@@ -4,7 +4,7 @@ save_as: index.html
 
 ## Play the LD49-Unstable
 
-[WIP]({static}/games/CI/index.html)
+[Current builds]({filename}pages/builds.md)
 
 ## Technical overview
 
