@@ -49,8 +49,13 @@ func _physics_process(delta):
 		$AudioStreamPlayer2D.stop()
 	elif !$AudioStreamPlayer2D.playing :
 		$AudioStreamPlayer2D.play()
-	
-	move_and_collide(0.05 * x * speed * delta)
+			
+	if position.x > get_viewport_rect().size.x:
+		position.x  = get_viewport_rect().size.x
+	if position.x < 0:
+		position.x  = 0
+	if (speed.x > 0 and position.x <= get_viewport_rect().size.x) or (speed.x < 0 and position.x >= 0):
+		move_and_collide(0.05 * x * speed * delta)
 
 func _on_HeadDownTimer_timeout():
 	$AnimationPlayer.play("head_down")
