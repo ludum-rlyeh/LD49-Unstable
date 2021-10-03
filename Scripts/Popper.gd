@@ -60,6 +60,7 @@ func pop_object_with_initial_position():
 		_can_drop = false
 		_pin.set_node_b("")
 		$Timer.start(seconds_between_pops)
+		$AudioStreamPlayer2D.play()
 		
 		var init_global_position = _next_object.global_position
 		call_deferred("remove_child", _next_object)

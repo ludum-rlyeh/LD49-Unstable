@@ -11,12 +11,18 @@ config_version=4
 [application]
 
 config/name="LD49-Unstable"
-run/main_scene="res://Scenes/LevelTest.tscn"
+run/main_scene="res://Scenes/Levels/LevelTest.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Signals="*res://Scripts/Signals.gd"
+
+[display]
+
+window/size/width=600
+window/size/height=800
+window/size/resizable=false
 
 [input]
 
