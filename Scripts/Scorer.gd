@@ -5,8 +5,11 @@ var initial_y = 0
 var speed = 20
 
 func _ready():
-	$RayCast2D.cast_to.x = -get_viewport_rect().size.x
+	var viewport_size_x = get_viewport_rect().size.x
+	$RayCast2D.cast_to.x = -viewport_size_x
 	initial_y = self.position.y
+	$Line.set_scale(Vector2(viewport_size_x / 1024 * $Line.scale.x, $Line.scale.y))
+	
 
 func _process(delta):
 	if $RayCast2D.is_colliding() :
