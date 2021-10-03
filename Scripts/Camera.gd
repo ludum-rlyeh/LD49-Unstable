@@ -2,6 +2,9 @@ extends Camera2D
 
 export (float) var interpolation_time = 1
 
+func _ready():
+	Signals.connect("popper_height_changed", self, "on_height_changed")
+
 func on_height_changed(height):
 	var viewport_size = get_viewport_rect().size
 	var target_zoom = height / viewport_size.y
