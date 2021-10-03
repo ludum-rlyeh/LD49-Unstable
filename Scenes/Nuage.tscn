@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/FallingObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/BG/BG/Nuage1.png" type="Texture" id=2]
+
+[node name="Nuage" instance=ExtResource( 1 )]
+collision_mask = 2
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+position = Vector2( 1.49826, 0.749104 )
+scale = Vector2( 0.38863, 0.363733 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -2.26074, -114.995, 80.8002, -105.556, 80.8002, -105.556, 133.657, -108.387, 180.851, -86.6783, 191.234, -21.551, 170.468, 25.6427, 134.601, 40.7447, 96.8461, 89.8262, 16.6168, 120.03, -53.2299, 100.209, -123.077, 113.423, -182.541, 57.7345, -178.765, -18.7194, -139.123, -71.5763, -71.1636, -87.6222 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+polygon = PoolVector2Array( -211.801, 20.9234, -153.281, -96.1171, 163.861, -141.423, 217.662, -12.1122, 181.795, 76.6119, -4.1485, 138.908, -157.056, 140.795 )

@@ -24,6 +24,9 @@ func _physics_process(delta):
 
 
 func _on_Area2D_body_entered(body):
+	if body != self and self.mode != RigidBody.MODE_RIGID:
+		print("test")
+		self.call_deferred("set_mode", RigidBody.MODE_RIGID)
 	if body is RigidBody2D and tabObjets.size() <20:
 		tabObjets.append(body)
 	
@@ -35,4 +38,3 @@ func _on_Area2D_body_exited(body):
 		if i != -1:
 			tabObjets.remove(i)
 				
-	

@@ -6,7 +6,6 @@
 [node name="Armoire" instance=ExtResource( 1 )]
 mass = 0.31
 
-
 [node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( 4.76221, 1.48819 )
 scale = Vector2( 0.1, 0.1 )

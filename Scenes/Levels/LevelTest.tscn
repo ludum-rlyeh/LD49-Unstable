@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/LevelTest.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Musics/Nosabe_-_Mauvaise_Affaire.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Assets/BG/BG/spritesheet(2).tres" type="Texture" id=8]
+[ext_resource path="res://Scenes/Nuage.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "spritesheet(2).tres 0"
@@ -340,3 +341,6 @@ autostart = true
 [node name="Bg1" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
 format = 1
+
+[node name="Nuage" parent="." instance=ExtResource( 9 )]
+position = Vector2( -67.8789, -568.513 )
