@@ -2,6 +2,8 @@ extends Node2D
 
 var _current_height = 0
 var update_height = false
+var bgIndex = 1
+onready var animation_player = $BG/BgGlitchAnimation
 
 func _ready():
 	_current_height = get_viewport_rect().size.y
@@ -12,6 +14,8 @@ func on_timer_timeout():
 	var falling_object = $Popper.pop_object_with_initial_position()
 	if falling_object != null :
 		call_deferred("_add_falling_object", falling_object[0], falling_object[1])
+	#BackgroundGlitch
+	glichBgRng()
 
 func _add_falling_object(falling_object : RigidBody2D, init_global_position : Vector2):
 	add_child(falling_object)
@@ -31,3 +35,23 @@ func _process(delta):
 
 func on_height_updated():
 	update_height = false
+	
+func glichBgRng():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var randNumber = rng.randf_range(0, 1)
+	print(randNumber)
+	if randNumber > 0.95:
+			glitchBg(1)
+	else:
+		if randNumber < 0.05:
+			glitchBg(2)	 
+		
+func glitchBg(i):
+	if i == 1:		
+		print("ok")
+		animation_player.play("BgNonGlitch")
+	else:		
+		print("nonok")
+		animation_player.play("BgGlitch")
+		
