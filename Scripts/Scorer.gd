@@ -2,7 +2,7 @@ extends Node2D
 
 var score = 0
 var initial_y = 0
-var speed = 20
+var speed = 100
 
 func _ready():
 	var viewport_size_x = get_viewport_rect().size.x
