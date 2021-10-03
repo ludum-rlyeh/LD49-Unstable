@@ -7,14 +7,14 @@
 mass = 0.36
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
-position = Vector2( 4.76221, 1.48819 )
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.136466, 0.143202 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" parent="." index="1"]
 position = Vector2( 0.479301, 12.4309 )
 scale = Vector2( 1.41881, 1.65025 )
-polygon = PoolVector2Array( -13.7417, 19.0494, -14.4227, 1.39419, -20.1067, -36.6028, 0.178839, -38.7778, 19.9442, -37.8781, 13.5112, 1.34123, 14.1275, 19.4548 )
+polygon = PoolVector2Array( -23.454, 30.6658, -25.1004, 2.962, -31.9213, -50.4235, -0.403961, -54.2656, 24.0573, -53.2546, 14.6491, 3.36643, 16.0603, 30.4636 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
-polygon = PoolVector2Array( -47.7526, -66.4644, 4.63229, -80.1506, 39.5556, -77.7909, 63.1524, -34.8447, 52.7698, 27.9228, 35.3081, 63.318, -31.2349, 59.5425, -51.0562, 21.3157 )
+position = Vector2( -26.0293, -32.3699 )
+polygon = PoolVector2Array( -47.7526, -66.4644, 4.63229, -80.1506, 81.4321, -68.563, 87.7889, 15.1346, 83.0213, 107.838, 18.9238, 124.789, -45.1737, 112.075, -51.0562, 21.3157 )

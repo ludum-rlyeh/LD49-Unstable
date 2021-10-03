@@ -4,15 +4,14 @@
 [ext_resource path="res://Assets/Objects/poulet.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 8.87068
-height = 9.12
+radius = 29.6909
+height = 52.7943
 
 [node name="Poulet" instance=ExtResource( 1 )]
 mass = 0.36
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
-position = Vector2( 0, -1.19209e-07 )
-scale = Vector2( 0.035, 0.035 )
+scale = Vector2( 0.127907, 0.118152 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" parent="." index="1"]
@@ -23,9 +22,10 @@ polygon = PoolVector2Array( -18.6281, -6.04775, -13.0752, -13.7944, -9.6773, -13
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
-position = Vector2( -1.10665, 0 )
+position = Vector2( -3.48507, -4.75684 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
-polygon = PoolVector2Array( -20.3803, -10.776, 6.24906, -21.6712, 23.0378, -10.776, 15.4261, 13.3683, -13.1061, 16.7054 )
+position = Vector2( 0.297302, -0.594604 )
+polygon = PoolVector2Array( -83.2639, -43.7425, 8.89963, -72.5808, 89.4684, -26.499, 46.0623, 42.475, -64.2366, 43.3669 )

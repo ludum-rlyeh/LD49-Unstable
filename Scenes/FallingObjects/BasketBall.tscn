@@ -4,14 +4,13 @@
 [ext_resource path="res://Assets/Objects/BallonBasket.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 11.6663
+radius = 21.9031
 
 [node name="BasketBall" instance=ExtResource( 1 )]
 mass = 0.36
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
-position = Vector2( -0.5, -1.593 )
-scale = Vector2( 0.03, 0.03 )
+scale = Vector2( 0.0584175, 0.0542461 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" parent="." index="1"]
@@ -22,7 +21,9 @@ polygon = PoolVector2Array( -11.6149, 2.16276, -13.5924, -11.8893, -0.760855, -1
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2( 1, 2 )
 shape = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
-polygon = PoolVector2Array( -16.3295, -13.7557, -1.19339, -22.1647, 11.2098, -18.8011, 19.829, -4.71611, 25.2948, 9.99958, 3.22131, 21.9824, -12.3353, 22.8232, -20.3238, 9.99958 )
+position = Vector2( -0.33371, 0.33371 )
+polygon = PoolVector2Array( -21.4993, -40.1085, 22.8842, -42.7781, 45.5764, -21.4207, 51.5832, 2.94012, 44.5753, 30.638, -5.4812, 43.319, -39.1859, 25.2987, -44.1916, -19.4184 )
