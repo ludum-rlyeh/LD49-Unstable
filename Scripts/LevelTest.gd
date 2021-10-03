@@ -41,10 +41,14 @@ func glichBgRng():
 	rng.randomize()
 	var randNumber = rng.randf_range(0, 1)
 	print(randNumber)
-	if randNumber > 0.95:
+	if randNumber > 0.80:
 			glitchBg(1)
+			get_viewport().render_target_v_flip = false
+			$Player2.normalControls = 1
 	else:
 		if randNumber < 0.05:
+			get_viewport().render_target_v_flip = true
+			$Player2.normalControls = 0
 			glitchBg(2)	 
 		
 func glitchBg(i):

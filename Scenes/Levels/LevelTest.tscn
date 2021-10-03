@@ -11,7 +11,7 @@
 [ext_resource path="res://Scenes/Nuage.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/BG/spritesheetBg.png" type="Texture" id=12]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "BgGlitch"
 length = 5.0
 tracks/0/type = "value"
@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "BgNonGlitch"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -42,7 +42,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="TileSet" id=1]
+[sub_resource type="TileSet" id=3]
 0/name = "spritesheet(2).tres 0"
 0/texture = ExtResource( 8 )
 0/tex_offset = Vector2( 0, 0 )
@@ -331,7 +331,7 @@ tracks/0/keys = {
 19/shapes = [  ]
 19/z_index = 0
 
-[sub_resource type="PhysicsMaterial" id=2]
+[sub_resource type="PhysicsMaterial" id=4]
 rough = true
 absorbent = true
 
@@ -345,8 +345,8 @@ hframes = 2
 
 [node name="BgGlitchAnimation" type="AnimationPlayer" parent="BG"]
 playback_speed = 4.0
-anims/BgGlitch = SubResource( 4 )
-anims/BgNonGlitch = SubResource( 5 )
+anims/BgGlitch = SubResource( 1 )
+anims/BgNonGlitch = SubResource( 2 )
 
 [node name="Camera" parent="." instance=ExtResource( 4 )]
 
@@ -369,12 +369,12 @@ wait_time = 2.0
 autostart = true
 
 [node name="Bg1" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
+tile_set = SubResource( 3 )
 format = 1
 
 [node name="Nuage" parent="." instance=ExtResource( 10 )]
 position = Vector2( -67.8789, -568.513 )
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 4 )
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 289.914, 796.202 )
