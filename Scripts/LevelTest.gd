@@ -25,11 +25,6 @@ func _process(delta):
 		if abs($Scorer.position.y - $Popper.position.y) < _current_height / 3.0:
 			new_pos.y -= _current_height
 			_current_height += get_viewport_rect().size.y
-		elif _current_height > get_viewport_rect().size.y and abs($Scorer.position.y - $Popper.position.y)  > 2.0 * _current_height / 3.0 :
-			_current_height -= get_viewport_rect().size.y
-			new_pos.y += _current_height
-
-		if new_pos != $Popper.position:
 			update_height = true
 			Signals.emit_signal("popper_height_changed", _current_height)
 			$Popper.update_height(new_pos)
