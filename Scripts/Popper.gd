@@ -39,6 +39,7 @@ func _ready():
 	var viewport_size_x = get_viewport_rect().size.x 
 	_min_x = viewport_size_x * (1 - range_viewport_ratio_patrol) * 0.5
 	_max_x = viewport_size_x - _min_x
+	$StaticBody2D/AnimatedSprite.rotation_degrees = 25
 	randomize()
 
 func _process(delta):
@@ -52,8 +53,8 @@ func _process(delta):
 		_drone.position += speed * delta
 		if _drone.global_position.x < _min_x or _drone.global_position.x > _max_x :
 			speed.x *= -1.0
-	
-	
+			$Tween.interpolate_property($StaticBody2D/AnimatedSprite, "rotation_degrees", $StaticBody2D/AnimatedSprite.rotation_degrees, 25 * sign(speed.x), 0.25)
+			$Tween.start()
 
 func pop_object_with_initial_position():
 	if _can_drop :
