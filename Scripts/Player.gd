@@ -64,6 +64,8 @@ func _physics_process(delta):
 		move_and_collide(0.05 * x * speed * delta)
 
 
+
+
 func _on_HeadDownTimer_timeout():
 	$AnimationPlayer.play("head_down")
 	$HeadDownTimer.start()
