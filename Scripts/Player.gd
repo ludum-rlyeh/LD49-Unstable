@@ -14,6 +14,12 @@ func _ready():
 	for child in $Wheels.get_children():
 		_wheels.append(child)
 		
+	var error = Signals.connect("popper_height_changed", self, "_on_height_changed")
+		
+func _on_height_changed(height):
+	$Arms/ArmRight.unfold(height)
+	$Arms/ArmLeft.unfold(height)
+		
 func _process(delta):
 	if abs(last_pos.x  - position.x) > 0.1:
 		for wheel in _wheels:
@@ -22,7 +28,6 @@ func _process(delta):
 	else:
 		$ChainAnimated.play("idle")
 		
-			
 	last_pos = position
 	
 
@@ -40,8 +45,6 @@ func _physics_process(delta):
 	elif (x > 0):
 			x -= 1
 	move_and_collide(0.05 * x * speed * delta)
-
-
 
 func _on_HeadDownTimer_timeout():
 	$AnimationPlayer.play("head_down")
