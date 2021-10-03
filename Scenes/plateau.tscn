@@ -1,3 +1,14 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 175.026, 10 )
 
 [node name="Plateau" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+space_override = 4
+gravity = 1529.64
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )

@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Objects/lit.png" type="Texture" id=2]
 
 [node name="Lit" instance=ExtResource( 1 )]
-mass = 8.19
+mass = 0.36
 can_sleep = true
 
 [node name="lit" type="Sprite" parent="." index="0"]
@@ -15,3 +15,6 @@ texture = ExtResource( 2 )
 position = Vector2( -64, 32 )
 scale = Vector2( 1.19082, 1.03971 )
 polygon = PoolVector2Array( 14.4093, -49.0331, 18.7185, -25.1742, 19.7866, -2.44071, 27.5018, -1.36962, 28.5186, -13.8678, 54.2632, -16.8366, 78.9475, -15.4872, 80.0668, -1.04762, 87.8432, -1.31752, 90.4943, -28.3748, 81.7163, -33.6378, 36.8252, -30.6689, 32.937, -39.778, 25.6908, -37.4164, 21.6569, -50.9611 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+polygon = PoolVector2Array( -55.3036, -38.1483, -15.661, -33.9008, -18.9645, -15.4953, 59.8488, -14.0795, 60.3208, 34.058, 25.3975, 49.6319, 2.74454, 26.9789, -30.7629, 48.688, -64.7424, 37.8335 )

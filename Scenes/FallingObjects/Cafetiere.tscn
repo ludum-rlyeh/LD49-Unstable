@@ -8,7 +8,7 @@ radius = 7.87658
 height = 8.19114
 
 [node name="Cafetiere" instance=ExtResource( 1 )]
-mass = 3.0
+mass = 0.36
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( 0, -1.19209e-07 )
@@ -25,3 +25,6 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 position = Vector2( 1.52412, 0 )
 shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+polygon = PoolVector2Array( -15.2099, -15.3014, 0.603592, -20.424, 17.3079, -16.415, 20.2034, 1.18027, 20.4261, 19.221, -6.30086, 19.4437, -19.4416, 8.97562 )

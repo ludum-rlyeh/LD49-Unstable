@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Objects/Armoire.png" type="Texture" id=2]
 
 [node name="Armoire" instance=ExtResource( 1 )]
-mass = 17.26
+mass = 0.31
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( 4.76221, 1.48819 )
@@ -15,3 +15,6 @@ texture = ExtResource( 2 )
 position = Vector2( 0.479301, 12.4309 )
 scale = Vector2( 1.41881, 1.65025 )
 polygon = PoolVector2Array( -18.2279, 19.9835, -27.3184, -40.0761, 0.652253, -42.2404, 29.9515, -39.8356, 18.3398, 19.8874, 13.1418, 22.9172, -13.0245, 23.2202 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+polygon = PoolVector2Array( 31.3282, 55.4689, 39.8134, 45.5694, 67.3905, -47.0615, 41.5812, -77.8206, -48.5748, -76.4064, -63.4241, -30.0909, -34.0792, 51.5798, -23.4726, 61.1257, 23.55, 62.1864 )

@@ -3,7 +3,11 @@
 [ext_resource path="res://Scenes/FallingObject.tscn" type="PackedScene" id=1]
 
 [node name="FallingObject" instance=ExtResource( 1 )]
+mass = 0.36
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 position = Vector2( 0, 40 )
 polygon = PoolVector2Array( -22.4666, -0.39801, -0.0496368, -38.8609, 24.7271, -0.63398, 2.782, -39.5688, 44.0765, -43.1083, -35.9169, -43.3443, -2.88126, -39.8048 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+polygon = PoolVector2Array( -35.4442, -34.5415, 60.5936, -37.7163, 57.4188, 56.7342, -47.3498, 63.0838, -47.3498, 63.8775, -60.8427, -9.14304 )

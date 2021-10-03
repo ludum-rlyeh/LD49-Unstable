@@ -7,7 +7,7 @@
 radius = 11.6663
 
 [node name="BasketBall" instance=ExtResource( 1 )]
-mass = 1.0
+mass = 0.36
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( -0.5, -1.593 )
@@ -23,3 +23,6 @@ disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+polygon = PoolVector2Array( -16.3295, -13.7557, -1.19339, -22.1647, 11.2098, -18.8011, 19.829, -4.71611, 25.2948, 9.99958, 3.22131, 21.9824, -12.3353, 22.8232, -20.3238, 9.99958 )

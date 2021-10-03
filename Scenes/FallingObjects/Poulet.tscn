@@ -8,7 +8,7 @@ radius = 8.87068
 height = 9.12
 
 [node name="Poulet" instance=ExtResource( 1 )]
-mass = 1.0
+mass = 0.36
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( 0, -1.19209e-07 )
@@ -26,3 +26,6 @@ disabled = true
 position = Vector2( -1.10665, 0 )
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+polygon = PoolVector2Array( -20.3803, -10.776, 6.24906, -21.6712, 23.0378, -10.776, 15.4261, 13.3683, -13.1061, 16.7054 )

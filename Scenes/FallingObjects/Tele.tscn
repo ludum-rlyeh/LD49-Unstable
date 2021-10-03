@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Objects/TV.png" type="Texture" id=2]
 
 [node name="FallingObject" instance=ExtResource( 1 )]
-mass = 4.29
+mass = 0.36
 
 [node name="TV" type="Sprite" parent="." index="0"]
 position = Vector2( -4.76837e-07, 0 )
@@ -20,3 +20,6 @@ polygon = PoolVector2Array( -11.6149, 2.16276, -13.5924, -11.8893, -0.760855, -1
 position = Vector2( 2.38419e-07, 17.4442 )
 scale = Vector2( 1.59753, 1.81336 )
 polygon = PoolVector2Array( -10.1031, -21.1282, -2.64391, -15.2153, 2.32397, -15.2024, 10.0176, -21.5801, 1.79641, -15.538, 0.0199971, -15.6785, -0.243189, -24.2574, -0.555724, -15.6205, -2.18962, -15.538 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+polygon = PoolVector2Array( -34.5051, -18.7989, -18.4593, -44.2834, 9.38495, -46.6431, 27.7905, -30.5973, 41.0047, 8.10149, 12.2166, 36.8896, -27.4261, 31.2264 )

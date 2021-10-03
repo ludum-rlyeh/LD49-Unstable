@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Objects/Casserole.png" type="Texture" id=2]
 
 [node name="Casserole" instance=ExtResource( 1 )]
-mass = 3.0
+mass = 0.36
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( 0, -1.19209e-07 )
@@ -15,3 +15,6 @@ texture = ExtResource( 2 )
 position = Vector2( 0, 12.5886 )
 scale = Vector2( 1.41881, 1.65025 )
 polygon = PoolVector2Array( -3.57372, -9.58781, 0.204602, -10.7025, 8.65025, -15.2248, 9.6504, -14.6197, 1.46404, -10.2248, 3.09391, -6.62601, -1.31413, -4.52409, -5.79626, -3.82345, -7.01865, -7.23111 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+polygon = PoolVector2Array( -15.328, -5.92694, -1.14536, -18.2742, 13.7047, -24.281, 22.7149, -9.09718, 16.3744, 12.2603, -12.3246, 17.0991, -20.8343, 0.580406 )

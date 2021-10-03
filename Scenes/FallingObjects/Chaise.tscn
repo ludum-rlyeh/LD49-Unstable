@@ -14,3 +14,6 @@ polygon = PoolVector2Array( -15.1243, 4.32675, -14.8883, -56.1402, -8.28122, -56
 position = Vector2( 0, -9.91125 )
 scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+polygon = PoolVector2Array( -20.8523, -57.0257, 3.21646, -54.1941, 2.27261, -25.406, 35.3081, -15.0234, 36.7239, 30.2825, -16.1329, 41.137, -34.5384, 23.6754, -22.2681, -52.7783 )
