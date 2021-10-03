@@ -42,3 +42,7 @@ position = Vector2( 605.07, 647.655 )
 stream = ExtResource( 7 )
 autoplay = true
 bus = "Background"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
