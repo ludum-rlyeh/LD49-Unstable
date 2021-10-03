@@ -44,6 +44,12 @@ func _physics_process(delta):
 			x += 1
 	elif (x > 0):
 			x -= 1
+	
+	if x == 0 and $AudioStreamPlayer2D.playing :
+		$AudioStreamPlayer2D.stop()
+	elif !$AudioStreamPlayer2D.playing :
+		$AudioStreamPlayer2D.play()
+	
 	move_and_collide(0.05 * x * speed * delta)
 
 func _on_HeadDownTimer_timeout():
