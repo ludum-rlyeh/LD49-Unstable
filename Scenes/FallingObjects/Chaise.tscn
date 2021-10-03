@@ -6,14 +6,15 @@
 [node name="Chaise" instance=ExtResource( 1 )]
 mass = 0.31
 
-[node name="CollisionPolygon2D" parent="." index="0"]
-position = Vector2( 0, 16 )
-polygon = PoolVector2Array( -15.1243, 4.32675, -14.8883, -56.1402, -8.28122, -56.3172, -8.04526, -18.8572, 15.1387, -19.0931, 15.2566, 3.79582, 7.76463, 3.85482, 7.76463, -13.6659, -7.86829, -13.6069, -7.57333, 4.26776 )
-
-[node name="ChaiseBois" type="Sprite" parent="." index="1"]
-position = Vector2( 0, -9.91125 )
-scale = Vector2( 0.05, 0.05 )
+[node name="ChaiseBois" type="Sprite" parent="." index="0"]
+position = Vector2( 2.67571, -15.114 )
+scale = Vector2( 0.0862336, 0.0841432 )
 texture = ExtResource( 2 )
 
+[node name="CollisionPolygon2D" parent="." index="1"]
+position = Vector2( 0, 16 )
+polygon = PoolVector2Array( -24.1009, 20.8263, -23.8036, -81.1482, -11.6142, -81.7428, -10.1277, -19.3095, 29.4135, -19.3095, 30.3053, 20.529, 17.5214, 19.9344, 16.3322, -9.4985, -9.23578, -10.0931, -9.53308, 21.1236 )
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
-polygon = PoolVector2Array( -20.8523, -57.0257, 3.21646, -54.1941, 2.27261, -25.406, 35.3081, -15.0234, 36.7239, 30.2825, -16.1329, 41.137, -34.5384, 23.6754, -22.2681, -52.7783 )
+position = Vector2( -9.81094, -19.6219 )
+polygon = PoolVector2Array( -20.8523, -57.0257, 3.21646, -54.1941, 19.6025, -23.2287, 54.0895, -5.09327, 55.2787, 71.3133, -22.0198, 73.989, -34.5384, 23.6754, -22.2681, -52.7783 )
