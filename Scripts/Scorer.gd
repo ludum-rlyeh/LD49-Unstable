@@ -8,7 +8,7 @@ func _ready():
 	var viewport_size_x = get_viewport_rect().size.x
 	$RayCast2D.cast_to.x = -viewport_size_x
 	initial_y = self.position.y
-	$Line.set_scale(Vector2(viewport_size_x / 1024 * $Line.scale.x, $Line.scale.y))
+	$Line.set_scale(Vector2(viewport_size_x / 600 * $Line.scale.x, $Line.scale.y))
 	
 
 func _process(delta):
@@ -16,7 +16,7 @@ func _process(delta):
 		score += delta
 	elif score > 0:
 		score -= delta
-	$Label.text = String(int(round(score))) + " m"
+	$Label.text = String(int(round(score)))
 
 	if self.position.y <= initial_y :
 		self.position.y = initial_y - speed * score
