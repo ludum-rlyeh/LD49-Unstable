@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/LevelTest.gd" type="Script" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Scenes/Score.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/PleinDObjets.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/SpecialObjects/BrokenBG.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Levels/RemoveZone.gd" type="Script" id=25]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Sprite
@@ -377,6 +378,9 @@ font_data = ExtResource( 16 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 213.964, 225.243 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 6000, 50 )
 
 [node name="LevelTest" type="Node2D"]
 script = ExtResource( 2 )
@@ -738,6 +742,23 @@ visible = false
 position = Vector2( 288.5, -4185.25 )
 mode = 1
 
+[node name="RemoveZone" type="Area2D" parent="."]
+script = ExtResource( 25 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RemoveZone"]
+position = Vector2( 6035.51, -1838.28 )
+rotation = -1.57079
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RemoveZone"]
+position = Vector2( -5924.66, -2007.34 )
+rotation = -1.57079
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RemoveZone"]
+position = Vector2( 38.3915, 3976.97 )
+shape = SubResource( 11 )
+
 [connection signal="body_entered" from="ThankYou/GravityZone" to="ThankYou" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="ThankYou/GravityZone" to="ThankYou" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Credit5/GravityZone" to="Credit5" method="_on_Area2D_body_entered"]
@@ -748,3 +769,4 @@ mode = 1
 [connection signal="body_exited" from="Credit3/GravityZone" to="Credit3" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Credit2/GravityZone" to="Credit2" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Credit2/GravityZone" to="Credit2" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="RemoveZone" to="RemoveZone" method="_on_RemoveZone_body_entered"]
