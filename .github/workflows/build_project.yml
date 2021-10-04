@@ -25,6 +25,9 @@ jobs:
       - run: unzip -p /tmp/${GODOT}.zip > /tmp/${GODOT} && chmod +x /tmp/${GODOT}
       - name: Check out repository code
         uses: actions/checkout@v2
+        with:
+          clean: false
+          fetch-depth: 0
       - run: mkdir _build
       - run: echo "Create export_presets.cfg"
       - run: |
@@ -57,12 +60,20 @@ jobs:
       - run: echo "export the project"
       - run: /tmp/${GODOT} --export HTML5 _build/LD${LD}-$(git rev-parse --short "$GITHUB_SHA").html
       - run: cd _build && ln -s LD${LD}-$(git rev-parse --short "$GITHUB_SHA").html index.html
+      - name: check-out pages
+        uses: actions/checkout@v2
+        with:
+          path: former-pages
+          ref: gh-pages
       - run: |
               [ -d site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/ ] || mkdir -p site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
+              # Move old-builds
+              mv former-pages/games/* site/content/games
+              # Move the recently build game
               mv _build/* site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
-              python .github/workflows/generate_build_page.py . > site/content/pages/builds.md
-              pip install -r site/requirements.txt
               tree site
+              python .github/workflows/generate_build_page.py site/content/games > site/content/pages/builds.md
+              pip install -r site/requirements.txt
               cd site && make publish
 
       - name: Deploy 🚀
