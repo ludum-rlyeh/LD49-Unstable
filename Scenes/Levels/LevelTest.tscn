@@ -421,6 +421,7 @@ autoplay = true
 bus = "Background"
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [node name="CriticalTimer" type="Timer" parent="Timer"]
@@ -735,7 +736,7 @@ __meta__ = {
 [node name="Step3" parent="." instance=ExtResource( 21 )]
 
 [node name="PleinDObjets" parent="." instance=ExtResource( 23 )]
-position = Vector2( 274.245, -2061.35 )
+position = Vector2( 276.361, -3408.37 )
 mode = 1
 
 [node name="Etoiles2" parent="." instance=ExtResource( 24 )]
@@ -755,7 +756,7 @@ position = Vector2( -136.248, -3799.76 )
 mode = 1
 
 [node name="Etoiles6" parent="." instance=ExtResource( 24 )]
-position = Vector2( 762.245, -3402.08 )
+position = Vector2( 744.286, -3402.08 )
 mode = 1
 
 [node name="Etoiles7" parent="." instance=ExtResource( 24 )]
