@@ -42,6 +42,7 @@ func _add_falling_object(falling_object : RigidBody2D, init_global_position : Ve
 	add_child(falling_object)
 	falling_object.set_global_position(init_global_position)
 	falling_object.set_mode(RigidBody2D.MODE_RIGID)
+	
 
 func _process(delta):
 	

@@ -374,12 +374,9 @@ script = ExtResource( 2 )
 debug = true
 
 [node name="BG" type="Sprite" parent="."]
-position = Vector2( 275.814, -760.17 )
+position = Vector2( 292.814, -798.17 )
 texture = ExtResource( 12 )
 hframes = 2
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="BgGlitchAnimation" type="AnimationPlayer" parent="BG"]
 playback_speed = 4.0
@@ -445,7 +442,7 @@ position = Vector2( 261.951, 302.449 )
 position = Vector2( 282, 523.818 )
 
 [node name="Credit" parent="." instance=ExtResource( 13 )]
-position = Vector2( -24.8621, -4950.71 )
+position = Vector2( 82.1379, -4950.71 )
 
 [node name="ThankYou" type="RigidBody2D" parent="."]
 position = Vector2( 208.61, -9790.77 )
@@ -475,7 +472,7 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ThankYou"]
 position = Vector2( 0, -0.629959 )
-polygon = PoolVector2Array( -395.031, -193.282, 23.5701, -469.178, 537.307, -297.933, 565.848, 111.155, -71.5662, 234.832, -337.949, 25.5322 )
+polygon = PoolVector2Array( -143.246, 13.0283, -120.619, -111.422, -18.7954, -213.245, 94.3417, -134.05, 184.852, 58.2832, 26.4593, 160.106, -131.933, 137.479 )
 disabled = true
 __meta__ = {
 "_edit_lock_": true
@@ -500,7 +497,7 @@ __meta__ = {
 }
 
 [node name="Credit5" type="RigidBody2D" parent="."]
-position = Vector2( 487.918, -6972.17 )
+position = Vector2( 594.918, -6972.17 )
 collision_layer = 3
 mode = 1
 mass = 2.64
@@ -555,7 +552,7 @@ __meta__ = {
 }
 
 [node name="Credit4" type="RigidBody2D" parent="."]
-position = Vector2( -34.3757, -6710.74 )
+position = Vector2( 72.6243, -6710.74 )
 collision_layer = 3
 mode = 1
 mass = 2.64
@@ -610,7 +607,7 @@ __meta__ = {
 }
 
 [node name="Credit3" type="RigidBody2D" parent="."]
-position = Vector2( 192.179, -6092.12 )
+position = Vector2( 299.179, -6092.12 )
 collision_layer = 3
 mode = 1
 mass = 2.64
@@ -665,7 +662,7 @@ __meta__ = {
 }
 
 [node name="Credit2" type="RigidBody2D" parent="."]
-position = Vector2( 484.385, -5486.44 )
+position = Vector2( 591.385, -5486.44 )
 collision_layer = 3
 mode = 1
 mass = 2.64

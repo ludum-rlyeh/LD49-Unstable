@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/SpecialObjects/Satellite.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/SpecialObjects/Meteor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Step4.gd" type="Script" id=3]
 
 [sub_resource type="Curve2D" id=1]
@@ -29,6 +30,34 @@ tracks/0/keys = {
 "values": [ 0.0, 2883.79 ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "falling"
+length = 14.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 13 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 711.36, -2733.76 ), Vector2( 1600, -2608 ), Vector2( 584, -1344 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 10, 13 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
 [node name="Step3" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -39,8 +68,9 @@ scale = Vector2( 1.09577, 1.29564 )
 curve = SubResource( 1 )
 
 [node name="PathFollow" type="PathFollow2D" parent="Orbit"]
-position = Vector2( -3062.27, -688.017 )
+position = Vector2( -1345.58, -506.745 )
 rotation = -0.179732
+offset = 1730.27
 rotate = false
 cubic_interp = false
 loop = false
@@ -55,5 +85,11 @@ anims/orbit = SubResource( 3 )
 [node name="Fall" type="Timer" parent="Orbit/PathFollow/Satellite"]
 wait_time = 4.6
 one_shot = true
+
+[node name="Meteor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1600, -2608 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Meteor"]
+anims/falling = SubResource( 4 )
 
 [connection signal="timeout" from="Orbit/PathFollow/Satellite/Fall" to="." method="_on_Fall_timeout"]

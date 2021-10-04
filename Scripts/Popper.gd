@@ -18,6 +18,7 @@ onready var _drone = $StaticBody2D
 onready var _pin = $StaticBody2D/PinJoint2D
 onready var _min_x = 0
 onready var _max_x = 0
+var _viewport_size_x = 0
 
 func _init():
 	var dir = Directory.new()
@@ -37,9 +38,9 @@ func _init():
 func _ready():
 	Signals.connect("ad_click", self, "on_ad_click")
 	$Timer.connect("timeout", self, "on_timer_timeout")
-	var viewport_size_x = get_viewport_rect().size.x 
-	_min_x = viewport_size_x * (1 - range_viewport_ratio_patrol) * 0.5
-	_max_x = viewport_size_x - _min_x
+	_viewport_size_x = get_viewport_rect().size.x 
+	_min_x = _viewport_size_x * (1 - range_viewport_ratio_patrol) * 0.5
+	_max_x = _viewport_size_x - _min_x
 	$StaticBody2D/AnimatedSprite.rotation_degrees = 25
 	randomize()
 
@@ -79,6 +80,9 @@ func on_timer_timeout():
 
 func update_height(pos):
 	_new_pos = pos
+	_viewport_size_x += get_viewport_rect().size.x 
+	_min_x -= get_viewport_rect().size.x / 2.0
+	_max_x += get_viewport_rect().size.x / 2.0
 	
 func on_ad_click():
 	seconds_between_pops = 0.1
