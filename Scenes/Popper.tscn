@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 1.60734
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
@@ -16,7 +16,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="AudioStreamRandomPitch" id=2]
+[sub_resource type="AudioStreamRandomPitch" id=3]
 audio_stream = ExtResource( 2 )
 random_pitch = 2.0
 
@@ -42,13 +42,12 @@ node_a = NodePath("..")
 [node name="AnimatedSprite" type="AnimatedSprite" parent="StaticBody2D"]
 position = Vector2( 0, -24 )
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "fly"
-frame = 1
 playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource( 2 )
+stream = SubResource( 3 )
 bus = "Sfx"
 
 [node name="Tween" type="Tween" parent="."]

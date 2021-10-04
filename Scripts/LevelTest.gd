@@ -8,7 +8,15 @@ onready var animation_player = $BG/BgGlitchAnimation
 func _ready():
 	_current_height = get_viewport_rect().size.y
 	Signals.connect("height_updated", self, "on_height_updated")
+	Signals.connect("game_started", self, "on_game_started")
 	$Timer.connect("timeout", self, "on_timer_timeout")
+	get_tree().paused = true
+
+func on_game_started():
+	$Scorer.visible = true
+	$Cursor.visible = true
+	$Popper.visible = true
+	get_tree().paused = false
 
 func on_timer_timeout():
 	var falling_object = $Popper.pop_object_with_initial_position()

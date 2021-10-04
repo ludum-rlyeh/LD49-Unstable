@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/FallingObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/BrokenMachine.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Fonts/Dirty Classic Machine.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/Title.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Sounds/falling-3.wav" type="AudioStream" id=5]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 151.825
+height = 468.312
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+outline_size = 2
+outline_color = Color( 0.909804, 0.101961, 0.101961, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 44
+outline_size = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="AudioStreamRandomPitch" id=4]
+audio_stream = ExtResource( 5 )
+random_pitch = 2.0
+
+[node name="Title" instance=ExtResource( 1 )]
+mode = 3
+script = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PoolVector2Array( -254.583, -89.5579, 225.625, -91.8053, 227.123, -5.65265, 323.749, 2.0531, 327.529, 92.7674, 236.815, 91.5075, 9.86841, 135.188, -3.61633, 98.4797, -85.2741, 90.239, -192.403, 88.7407, -190.156, 9.33043, -256.081, -2.65604 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityZone" index="0"]
+position = Vector2( 27.9678, 2.99663 )
+rotation = 1.56372
+shape = SubResource( 3 )
+disabled = true
+
+[node name="Label" type="Label" parent="." index="2"]
+margin_left = -267.111
+margin_top = -154.691
+margin_right = 238.889
+margin_bottom = 45.3094
+rect_rotation = -0.259318
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.909804, 0.721569, 0.0823529, 1 )
+custom_colors/font_outline_modulate = Color( 0.596078, 0.027451, 0.027451, 1 )
+text = "LIFT-UP"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="." index="3"]
+margin_left = -200.075
+margin_top = -62.4218
+margin_right = 335.925
+margin_bottom = 137.578
+rect_rotation = 0.00540179
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.909804, 0.721569, 0.0823529, 1 )
+custom_colors/font_outline_modulate = Color( 0.596078, 0.027451, 0.027451, 1 )
+text = "MACHINE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="." index="4"]
+margin_left = 1.47454
+margin_top = 88.5802
+margin_right = 293.475
+margin_bottom = 134.58
+rect_rotation = -12.7601
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.054902, 0.627451, 0.905882, 1 )
+custom_colors/font_outline_modulate = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+text = "nightly version"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = SubResource( 4 )

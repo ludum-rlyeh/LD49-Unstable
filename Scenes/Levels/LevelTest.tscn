@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/LevelTest.gd" type="Script" id=2]
@@ -8,7 +8,9 @@
 [ext_resource path="res://Scenes/Cursor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Musics/Nosabe_-_Mauvaise_Affaire.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Assets/BG/BG/spritesheet(2).tres" type="Texture" id=8]
+[ext_resource path="res://Scenes/Title.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Nuage.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/StartButton.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/BG/spritesheetBg.png" type="Texture" id=12]
 
 [sub_resource type="Animation" id=1]
@@ -339,7 +341,7 @@ absorbent = true
 script = ExtResource( 2 )
 
 [node name="BG" type="Sprite" parent="."]
-position = Vector2( 275.814, -780.352 )
+position = Vector2( 275.814, -760.17 )
 texture = ExtResource( 12 )
 hframes = 2
 
@@ -351,15 +353,19 @@ anims/BgNonGlitch = SubResource( 2 )
 [node name="Camera" parent="." instance=ExtResource( 4 )]
 
 [node name="Popper" parent="." instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 287.657, 93.5918 )
 
 [node name="Scorer" parent="." instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 605.07, 671.655 )
 
 [node name="Cursor" parent="." instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 605.07, 671.655 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 7 )
 autoplay = true
 bus = "Background"
@@ -373,7 +379,7 @@ tile_set = SubResource( 3 )
 format = 1
 
 [node name="Nuage" parent="." instance=ExtResource( 10 )]
-position = Vector2( 137.512, -180.099 )
+position = Vector2( 152.631, -185.139 )
 physics_material_override = SubResource( 4 )
 
 [node name="Nuage2" parent="." instance=ExtResource( 10 )]
@@ -388,3 +394,9 @@ physics_material_override = SubResource( 4 )
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 289.914, 796.202 )
+
+[node name="Title" parent="." instance=ExtResource( 9 )]
+position = Vector2( 261.951, 302.449 )
+
+[node name="StartButton" parent="." instance=ExtResource( 11 )]
+position = Vector2( 282, 523.818 )
