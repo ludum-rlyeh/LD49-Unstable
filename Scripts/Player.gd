@@ -9,6 +9,8 @@ var normalControls = 1
 var objectsInZone = -3
 var speedScale = 1
 
+var _game_ended
+
 func _init():
 	set_process(true)
 	
@@ -18,7 +20,10 @@ func _ready():
 		
 	var error = Signals.connect("popper_height_changed", self, "_on_height_changed")
 	Signals.connect("game_started", self, "_on_game_started")
+	Signals.connect("game_ended", self, "on_game_ended")
 	
+func on_game_ended():
+	_game_ended = true
 		
 func _on_height_changed(height):
 	$Arms/ArmRight.unfold(height)
@@ -35,6 +40,10 @@ func _process(delta):
 	last_pos = position
 
 func _physics_process(delta):
+	if _game_ended:
+		move_and_collide(Vector2(0, 9.81 * 100 * delta))
+		return
+	
 	var v = speed
 	if normalControls != 1:
 		v = -speed
