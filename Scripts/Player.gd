@@ -38,8 +38,15 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("ui_right"):
 		move_and_collide(v * delta)
+		if not $AudioStreamPlayer2D.playing:
+			$AudioStreamPlayer2D.play()
 	elif Input.is_action_pressed("ui_left"):
 		move_and_collide(-v * delta)
+		if not $AudioStreamPlayer2D.playing:
+			$AudioStreamPlayer2D.play()
+	elif Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left"):
+		if $AudioStreamPlayer2D.playing:
+			$AudioStreamPlayer2D.stop()
 
 func _on_HeadDownTimer_timeout():
 	$AnimationPlayer.play("head_down")

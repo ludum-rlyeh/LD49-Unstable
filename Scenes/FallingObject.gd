@@ -18,9 +18,6 @@ func _physics_process(delta):
 			var attractDirection : Vector2 = (self.get_position() - object.get_position()).normalized()
 			object.apply_central_impulse(attractDirection * attractStrength)
 			
-		
-
-
 
 
 func _on_Area2D_body_entered(body):

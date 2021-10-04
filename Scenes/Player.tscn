@@ -131,5 +131,6 @@ scale = Vector2( 0.714, -0.714 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
+volume_db = 14.136
 
 [connection signal="timeout" from="HeadDownTimer" to="." method="_on_HeadDownTimer_timeout"]

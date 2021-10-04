@@ -28,4 +28,3 @@ func _process(delta):
 			self.position = self.position.linear_interpolate(new_pos, delta)
 		else:
 			new_pos = null
-			self.set_process(false)
