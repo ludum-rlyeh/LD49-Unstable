@@ -31,7 +31,9 @@ func _input(event):
 
 func _on_Area2D_body_entered(body):
 	if body != self and self.mode != RigidBody.MODE_RIGID:
-		$AudioStreamPlayer2D.play()
+		var audio = $AudioStreamPlayer2D
+		if audio:
+			audio.play()
 		self.call_deferred("set_mode", RigidBody.MODE_RIGID)
 	if body is RigidBody2D and tabObjets.size() <20:
 		tabObjets.append(body)

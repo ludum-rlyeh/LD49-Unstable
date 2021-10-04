@@ -380,7 +380,6 @@ extents = Vector2( 213.964, 225.243 )
 
 [node name="LevelTest" type="Node2D"]
 script = ExtResource( 2 )
-debug = true
 
 [node name="BrokenBG" parent="." instance=ExtResource( 24 )]
 visible = false

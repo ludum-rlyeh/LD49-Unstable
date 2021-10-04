@@ -13,6 +13,7 @@ func _ready():
 func on_height_updated():
 	self.position.x += get_viewport_rect().size.x / 2.0
 	$RayCast2D.cast_to.x -= get_viewport_rect().size.x
+	
 
 func _process(delta):
 	if $RayCast2D.is_colliding() :
@@ -26,7 +27,10 @@ func _process(delta):
 		self.position.y = initial_y
 	
 	#print("SCORE: " + String(int(round(score * 10.0))))
-	
+#
+#	if Input.is_action_just_pressed("ui_down"):
+#		Signals.emit_signal("score_changed", 170)
+
 	Signals.emit_signal("score_changed", score)
 	
 	
