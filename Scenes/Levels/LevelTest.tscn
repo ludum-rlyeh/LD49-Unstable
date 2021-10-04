@@ -21,11 +21,10 @@
 [ext_resource path="res://Assets/Members/dadou.jpg" type="Texture" id=19]
 [ext_resource path="res://Assets/Members/jaja.png" type="Texture" id=20]
 [ext_resource path="res://Scenes/Levels/Step3.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/SpecialObjects/BrokenBG.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/PleinDObjets.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Etoiles.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Scenes/SpecialObjects/BrokenBG.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Levels/RemoveZone.gd" type="Script" id=25]
-
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Sprite
@@ -386,7 +385,7 @@ extents = Vector2( 6000, 50 )
 [node name="LevelTest" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="BrokenBG" parent="." instance=ExtResource( 24 )]
+[node name="BrokenBG" parent="." instance=ExtResource( 22 )]
 visible = false
 position = Vector2( 308.595, -798.316 )
 
