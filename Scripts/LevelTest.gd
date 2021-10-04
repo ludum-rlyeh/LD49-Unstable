@@ -4,6 +4,7 @@ var _current_height = 0
 var update_height = false
 var bgIndex = 1
 onready var animation_player = $BG/BgGlitchAnimation
+var can_bgrng = false
 
 func _ready():
 	_current_height = get_viewport_rect().size.y
@@ -23,7 +24,8 @@ func on_timer_timeout():
 	if falling_object != null :
 		call_deferred("_add_falling_object", falling_object[0], falling_object[1])
 	#BackgroundGlitch
-	glichBgRng()
+	if can_bgrng :
+		glichBgRng()
 
 func _add_falling_object(falling_object : RigidBody2D, init_global_position : Vector2):
 	add_child(falling_object)
@@ -40,6 +42,9 @@ func _process(delta):
 			update_height = true
 			Signals.emit_signal("popper_height_changed", _current_height)
 			$Popper.update_height(new_pos)
+	
+	if not can_bgrng and int(round($Scorer.score * 10.0)) > 100:
+		can_bgrng = true
 
 func on_height_updated():
 	update_height = false
