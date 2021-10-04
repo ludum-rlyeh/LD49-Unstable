@@ -6,17 +6,17 @@
 [ext_resource path="res://Scripts/Title.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Sounds/falling-3.wav" type="AudioStream" id=5]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 151.825
 height = 468.312
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 120
 outline_size = 2
 outline_color = Color( 0.909804, 0.101961, 0.101961, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 44
 outline_size = 1
 font_data = ExtResource( 3 )
@@ -36,7 +36,7 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityZone" index="0"]
 position = Vector2( 27.9678, 2.99663 )
 rotation = 1.56372
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 disabled = true
 
 [node name="Label" type="Label" parent="." index="2"]
@@ -45,7 +45,7 @@ margin_top = -154.691
 margin_right = 238.889
 margin_bottom = 45.3094
 rect_rotation = -0.259318
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.909804, 0.721569, 0.0823529, 1 )
 custom_colors/font_outline_modulate = Color( 0.596078, 0.027451, 0.027451, 1 )
 text = "LIFT-UP"
@@ -61,7 +61,7 @@ margin_top = -62.4218
 margin_right = 335.925
 margin_bottom = 137.578
 rect_rotation = 0.00540179
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.909804, 0.721569, 0.0823529, 1 )
 custom_colors/font_outline_modulate = Color( 0.596078, 0.027451, 0.027451, 1 )
 text = "MACHINE"
@@ -77,7 +77,7 @@ margin_top = 88.5802
 margin_right = 293.475
 margin_bottom = 134.58
 rect_rotation = -12.7601
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.054902, 0.627451, 0.905882, 1 )
 custom_colors/font_outline_modulate = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
 text = "nightly version"
