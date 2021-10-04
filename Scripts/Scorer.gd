@@ -21,7 +21,7 @@ func _process(delta):
 	else:
 		self.position.y = initial_y
 	
-	print("SCORE: " + String(int(round(score * 10.0))))
+	#print("SCORE: " + String(int(round(score * 10.0))))
 	
 	Signals.emit_signal("score_changed", score)
 	

@@ -10,7 +10,7 @@ func _on_game_started():
 	call_deferred("move_to_sky")
 
 func _on_score_changed(score):
-	if self.mode != RigidBody2D.MODE_RIGID and int(round(score * 10.0)) > 160 :
+	if self.mode != RigidBody2D.MODE_RIGID and int(round(score * 10.0)) > 150 :
 		call_deferred("fall")
 
 func move_to_sky():
