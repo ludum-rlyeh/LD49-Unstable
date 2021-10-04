@@ -1,17 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/FallingObject.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Objects/halter.png" type="Texture" id=2]
 
+[sub_resource type="GDScript" id=1]
+
 [node name="Altere" instance=ExtResource( 1 )]
-mass = 15.0
+mass = 0.36
+script = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
-position = Vector2( 4.76221, 1.48819 )
-scale = Vector2( 0.07, 0.07 )
+position = Vector2( 0.35247, 0.385757 )
+scale = Vector2( 0.143331, 0.101252 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-position = Vector2( 0.479301, 12.4309 )
-scale = Vector2( 1.41881, 1.65025 )
-polygon = PoolVector2Array( -18.6281, -6.04775, -13.0752, -13.7944, -10.5083, -13.7944, -9.56537, -7.53404, 11.2842, -7.39892, 12.9605, -14.8754, 15.8941, -14.7853, 19.9278, -6.04775, 16.2608, 2.50964, 12.1747, 2.28444, 11.127, -5.14697, -9.51298, -5.50729, -10.5607, 2.82491, -12.5514, 3.00507 )
+polygon = PoolVector2Array( -43.6727, -18.8777, -38.633, -16.3578, -37.0581, -2.81367, 23.4181, -1.55376, 29.0878, -19.8226, 41.372, -18.8777, 49.5615, 1.91103, 37.9072, 22.6997, 27.8279, 23.0147, 23.1031, 5.6908, -34.8532, 4.11589, -39.263, 23.6447, -47.4524, 23.6447, -56.2719, 4.11589, -63.5164, 2.54099, -63.8314, -1.86873, -56.2719, -2.81367, -51.2322, -11.9481 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+position = Vector2( 0, 0.31498 )
+polygon = PoolVector2Array( -75.1707, -21.0825, -10.9147, -44.0761, 50.5064, -27.6971, 61.2158, 1.59605, 48.9315, 33.0941, -15.6394, 39.0787, -70.131, 31.5192 )

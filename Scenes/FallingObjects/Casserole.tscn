@@ -4,14 +4,18 @@
 [ext_resource path="res://Assets/Objects/Casserole.png" type="Texture" id=2]
 
 [node name="Casserole" instance=ExtResource( 1 )]
-mass = 3.0
+mass = 0.36
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
-position = Vector2( 0, -1.19209e-07 )
-scale = Vector2( 0.025, 0.025 )
+position = Vector2( -0.891899, 5.72205e-06 )
+scale = Vector2( 0.0891057, 0.0709889 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-position = Vector2( 0, 12.5886 )
+position = Vector2( 1.52588e-05, 11.3994 )
 scale = Vector2( 1.41881, 1.65025 )
-polygon = PoolVector2Array( -3.57372, -9.58781, 0.204602, -10.7025, 8.65025, -15.2248, 9.6504, -14.6197, 1.46404, -10.2248, 3.09391, -6.62601, -1.31413, -4.52409, -5.79626, -3.82345, -7.01865, -7.23111 )
+polygon = PoolVector2Array( -14.8913, -12.1559, -4.20457, -15.5789, 2.29127, -17.2003, 12.1398, -21.7042, 32.0464, -29.8112, 33.9323, -27.4691, 5.01533, -15.3987, 11.5112, -2.96798, -5.04273, 1.89622, -20.968, 4.4184, -22.8539, -0.986268, -26.2066, -5.67032 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+position = Vector2( -41.9195, -17.8381 )
+polygon = PoolVector2Array( -15.328, -5.92694, -1.14536, -18.2742, 68.36, -28.8774, 99.8739, -26.7963, 91.8468, 31.1775, 65.3869, 40.9885, 3.84549, 48.421, -14.2899, 32.9614 )

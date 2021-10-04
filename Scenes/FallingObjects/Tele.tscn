@@ -4,19 +4,18 @@
 [ext_resource path="res://Assets/Objects/TV.png" type="Texture" id=2]
 
 [node name="FallingObject" instance=ExtResource( 1 )]
-mass = 4.29
+mass = 0.36
 
 [node name="TV" type="Sprite" parent="." index="0"]
-position = Vector2( -4.76837e-07, 0 )
-scale = Vector2( 0.05, 0.05 )
+position = Vector2( -0.166855, -1.00113 )
+scale = Vector2( 0.151677, 0.137599 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-position = Vector2( 0.479301, 12.4309 )
+position = Vector2( 0.636787, 12.4309 )
 scale = Vector2( 1.41881, 1.65025 )
-polygon = PoolVector2Array( -11.6149, 2.16276, -13.5924, -11.8893, -0.760855, -14.1739, 12.8399, -13.242, 10.9519, 1.93821 )
+polygon = PoolVector2Array( -32.7331, 20.1769, -41.4712, -20.8301, -25.3597, -24.8745, -2.30971, -26.8966, 25.3268, -25.8855, 40.861, -23.341, 33.8679, 18.5545 )
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." index="2"]
-position = Vector2( 2.38419e-07, 17.4442 )
-scale = Vector2( 1.59753, 1.81336 )
-polygon = PoolVector2Array( -10.1031, -21.1282, -2.64391, -15.2153, 2.32397, -15.2024, 10.0176, -21.5801, 1.79641, -15.538, 0.0199971, -15.6785, -0.243189, -24.2574, -0.555724, -15.6205, -2.18962, -15.538 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+position = Vector2( -87.722, -49.1369 )
+polygon = PoolVector2Array( -32.5866, 39.3041, -11.4829, -37.8661, 68.5221, -49.8353, 151.047, -41.9608, 185.695, -11.4078, 219.713, 85.2912, 165.221, 113.009, 92.4606, 134.428, 7.10092, 120.254 )

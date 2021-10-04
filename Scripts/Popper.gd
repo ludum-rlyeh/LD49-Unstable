@@ -18,6 +18,7 @@ onready var _drone = $StaticBody2D
 onready var _pin = $StaticBody2D/PinJoint2D
 onready var _min_x = 0
 onready var _max_x = 0
+var _viewport_size_x = 0
 
 func _init():
 	var dir = Directory.new()
@@ -35,10 +36,12 @@ func _init():
 	dir.list_dir_end()
 
 func _ready():
+	Signals.connect("ad_click", self, "on_ad_click")
 	$Timer.connect("timeout", self, "on_timer_timeout")
-	var viewport_size_x = get_viewport_rect().size.x 
-	_min_x = viewport_size_x * (1 - range_viewport_ratio_patrol) * 0.5
-	_max_x = viewport_size_x - _min_x
+	_viewport_size_x = get_viewport_rect().size.x 
+	_min_x = _viewport_size_x * (1 - range_viewport_ratio_patrol) * 0.5
+	_max_x = _viewport_size_x - _min_x
+	$StaticBody2D/AnimatedSprite.rotation_degrees = 25
 	randomize()
 
 func _process(delta):
@@ -52,15 +55,15 @@ func _process(delta):
 		_drone.position += speed * delta
 		if _drone.global_position.x < _min_x or _drone.global_position.x > _max_x :
 			speed.x *= -1.0
-	
-	
+			$Tween.interpolate_property($StaticBody2D/AnimatedSprite, "rotation_degrees", $StaticBody2D/AnimatedSprite.rotation_degrees, 25 * sign(speed.x), 0.25)
+			$Tween.start()
 
 func pop_object_with_initial_position():
 	if _can_drop :
 		_can_drop = false
 		_pin.set_node_b("")
 		$Timer.start(seconds_between_pops)
-		
+		$AudioStreamPlayer2D.play()		
 		var init_global_position = _next_object.global_position
 		call_deferred("remove_child", _next_object)
 		return [_next_object, init_global_position]
@@ -77,4 +80,9 @@ func on_timer_timeout():
 
 func update_height(pos):
 	_new_pos = pos
+	_viewport_size_x += get_viewport_rect().size.x 
+	_min_x -= get_viewport_rect().size.x / 2.0
+	_max_x += get_viewport_rect().size.x / 2.0
 	
+func on_ad_click():
+	seconds_between_pops = 0.1

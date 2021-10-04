@@ -4,12 +4,16 @@
 [ext_resource path="res://Assets/Objects/tablebois.png" type="Texture" id=2]
 
 [node name="Table" instance=ExtResource( 1 )]
+mass = 0.36
 
 [node name="tablebois" type="Sprite" parent="." index="0"]
-position = Vector2( -4.76837e-07, 9.53674e-07 )
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.191703, 0.133146 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" parent="." index="1"]
 position = Vector2( -24, 32 )
-polygon = PoolVector2Array( -33.2055, 25.9579, -32.6578, -44.2221, 80.6382, -44.4583, 80.6714, 25.8445, 65.6508, 25.8051, 58.68, 22.3983, 58.7502, -31.6202, -12.2773, -32.3789, -12.3858, 23.8014, -18.2459, 25.9111 )
+polygon = PoolVector2Array( -85.294, 45.3857, -83.9591, -47.3857, 133.286, -49.0542, 133.286, 45.3857, 104.253, 47.0542, 90.2375, 40.7137, 89.5701, -31.7013, -46.2499, -31.0339, -44.5813, 40.38, -55.9275, 45.052 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+position = Vector2( -73.4162, -15.3506 )
+polygon = PoolVector2Array( -65.2143, -30.1254, 223.72, -37.0203, 225.136, 99.8415, 117.062, 131.933, 54.0921, 135.311, -22.0171, 126.986, -80.3163, 76.5322 )

@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/FallingObjects/Armoire.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/FallingObjects/Table.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/FallingObjects/Poulet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/FallingObjects/Frigo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/FallingObjects/BasketBall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/FallingObjects/lit.tscn" type="PackedScene" id=8]
+
+[node name="LevelTestGaucheDroite" type="Node2D"]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 83.7858, 570.888 )
+script = ExtResource( 1 )
+speed = Vector2( 50, 0 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+position = Vector2( -1.86539, -2.45763 )
+scale = Vector2( 1.00602, 0.975673 )
+polygon = PoolVector2Array( -92.9809, -64.7013, -48.7498, -64.7014, -55.0685, -27.7814, 54.4563, -28.8673, 47.0845, -61.4437, 96.5813, -60.3578, 84.9969, 4.79492, -87.7153, 3.70905 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Armoire" parent="." instance=ExtResource( 3 )]
+position = Vector2( 84.9487, 475.713 )
+rotation = 3.14406
+continuous_cd = 2
+contact_monitor = true
+
+[node name="Table" parent="." instance=ExtResource( 4 )]
+position = Vector2( 86.8363, 417.192 )
+rotation = 0.0225496
+continuous_cd = 2
+
+[node name="Frigo" parent="." instance=ExtResource( 6 )]
+position = Vector2( 84.9486, 371.886 )
+rotation = 1.51945
+continuous_cd = 2
+
+[node name="BasketBall" parent="." instance=ExtResource( 7 )]
+position = Vector2( 135.918, 485.152 )
+continuous_cd = 2
+
+[node name="Lit" parent="." instance=ExtResource( 8 )]
+position = Vector2( 103.826, 305.815 )
+continuous_cd = 2
+
+[node name="Poulet" parent="." instance=ExtResource( 5 )]
+position = Vector2( 98.8774, 290.714 )
+continuous_cd = 2

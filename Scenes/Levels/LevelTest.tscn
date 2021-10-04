@@ -1,0 +1,737 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/LevelTest.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Popper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Scorer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Cursor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Musics/Nosabe_-_Mauvaise_Affaire.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Assets/BG/BG/spritesheet(2).tres" type="Texture" id=8]
+[ext_resource path="res://Scenes/Title.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Nuage.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/StartButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/BG/spritesheetBg.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Credit.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripts/Credit.gd" type="Script" id=14]
+[ext_resource path="res://Assets/Members/Avzgui.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Fonts/Dirty Classic Machine.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://Assets/Sounds/falling-3.wav" type="AudioStream" id=17]
+[ext_resource path="res://Assets/Members/ptitbouch.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Members/dadou.jpg" type="Texture" id=19]
+[ext_resource path="res://Assets/Members/jaja.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Levels/Step3.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Score.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/PleinDObjets.tscn" type="PackedScene" id=23]
+
+[sub_resource type="Animation" id=1]
+resource_name = "BgGlitch"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 1.2, 1.5, 1.8, 2.1, 2.3, 2.6, 2.9, 3.2, 3.5, 3.8, 4.1, 4.4, 4.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "BgNonGlitch"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="TileSet" id=3]
+0/name = "spritesheet(2).tres 0"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 256, 256 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "spritesheet(2).tres 1"
+1/texture = ExtResource( 8 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 256, 256 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "spritesheet(2).tres 2"
+2/texture = ExtResource( 8 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 256, 0, 256, 256 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "spritesheet(2).tres 3"
+3/texture = ExtResource( 8 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 512, 0, 256, 256 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "spritesheet(2).tres 4"
+4/texture = ExtResource( 8 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 768, 0, 256, 256 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "spritesheet(2).tres 5"
+5/texture = ExtResource( 8 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 1024, 0, 256, 256 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "spritesheet(2).tres 6"
+6/texture = ExtResource( 8 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 1280, 0, 256, 256 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "spritesheet(2).tres 7"
+7/texture = ExtResource( 8 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 1536, 0, 256, 256 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "spritesheet(2).tres 8"
+8/texture = ExtResource( 8 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 1792, 0, 256, 256 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "spritesheet(2).tres 9"
+9/texture = ExtResource( 8 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 1792, 256, 256, 256 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+10/name = "spritesheet(2).tres 10"
+10/texture = ExtResource( 8 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 1536, 256, 256, 256 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
+10/shapes = [  ]
+10/z_index = 0
+11/name = "spritesheet(2).tres 11"
+11/texture = ExtResource( 8 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 1280, 256, 256, 256 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "spritesheet(2).tres 12"
+12/texture = ExtResource( 8 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 1024, 256, 256, 256 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
+13/name = "spritesheet(2).tres 13"
+13/texture = ExtResource( 8 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 768, 256, 256, 256 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
+14/name = "spritesheet(2).tres 14"
+14/texture = ExtResource( 8 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 512, 256, 256, 256 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
+15/name = "spritesheet(2).tres 15"
+15/texture = ExtResource( 8 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 256, 256, 256, 256 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape_one_way = false
+15/shape_one_way_margin = 0.0
+15/shapes = [  ]
+15/z_index = 0
+16/name = "spritesheet(2).tres 16"
+16/texture = ExtResource( 8 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 0, 256, 256, 256 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/navigation_offset = Vector2( 0, 0 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape_one_way = false
+16/shape_one_way_margin = 0.0
+16/shapes = [  ]
+16/z_index = 0
+17/name = "spritesheet(2).tres 17"
+17/texture = ExtResource( 8 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 1792, 512, 256, 256 )
+17/tile_mode = 0
+17/occluder_offset = Vector2( 0, 0 )
+17/navigation_offset = Vector2( 0, 0 )
+17/shape_offset = Vector2( 0, 0 )
+17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+17/shape_one_way = false
+17/shape_one_way_margin = 0.0
+17/shapes = [  ]
+17/z_index = 0
+18/name = "spritesheet(2).tres 18"
+18/texture = ExtResource( 8 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 1536, 512, 256, 256 )
+18/tile_mode = 0
+18/occluder_offset = Vector2( 0, 0 )
+18/navigation_offset = Vector2( 0, 0 )
+18/shape_offset = Vector2( 0, 0 )
+18/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+18/shape_one_way = false
+18/shape_one_way_margin = 0.0
+18/shapes = [  ]
+18/z_index = 0
+19/name = "spritesheet(2).tres 19"
+19/texture = ExtResource( 8 )
+19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 1280, 512, 256, 256 )
+19/tile_mode = 0
+19/occluder_offset = Vector2( 0, 0 )
+19/navigation_offset = Vector2( 0, 0 )
+19/shape_offset = Vector2( 0, 0 )
+19/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+19/shape_one_way = false
+19/shape_one_way_margin = 0.0
+19/shapes = [  ]
+19/z_index = 0
+
+[sub_resource type="PhysicsMaterial" id=4]
+rough = true
+absorbent = true
+
+[sub_resource type="DynamicFont" id=5]
+size = 512
+outline_size = 2
+font_data = ExtResource( 16 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 2000, 700 )
+
+[sub_resource type="AudioStreamRandomPitch" id=7]
+audio_stream = ExtResource( 17 )
+random_pitch = 2.0
+
+[sub_resource type="DynamicFont" id=8]
+size = 83
+outline_size = 4
+outline_color = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
+font_data = ExtResource( 16 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 213.964, 225.243 )
+
+[node name="LevelTest" type="Node2D"]
+script = ExtResource( 2 )
+debug = true
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 292.814, -798.17 )
+texture = ExtResource( 12 )
+hframes = 2
+
+[node name="BgGlitchAnimation" type="AnimationPlayer" parent="BG"]
+playback_speed = 4.0
+anims/BgGlitch = SubResource( 1 )
+anims/BgNonGlitch = SubResource( 2 )
+
+[node name="Camera" parent="." instance=ExtResource( 4 )]
+
+[node name="Popper" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 287.657, 93.5918 )
+
+[node name="Scorer" parent="." instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 605.07, 671.655 )
+
+[node name="Cursor" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 605.07, 671.655 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 7 )
+autoplay = true
+bus = "Background"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="CriticalTimer" type="Timer" parent="Timer"]
+wait_time = 0.897
+
+[node name="Bg1" type="TileMap" parent="."]
+tile_set = SubResource( 3 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Nuage" parent="." instance=ExtResource( 10 )]
+position = Vector2( 152.631, -185.139 )
+physics_material_override = SubResource( 4 )
+
+[node name="Nuage2" parent="." instance=ExtResource( 10 )]
+position = Vector2( -118.488, -766.099 )
+rotation = -2.56738
+physics_material_override = SubResource( 4 )
+
+[node name="Nuage3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 684.171, -602.187 )
+rotation = -3.24457
+physics_material_override = SubResource( 4 )
+
+[node name="Player2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 289.914, 796.202 )
+speed = Vector2( 130, 0 )
+
+[node name="Title" parent="." instance=ExtResource( 9 )]
+position = Vector2( 261.951, 302.449 )
+
+[node name="StartButton" parent="." instance=ExtResource( 11 )]
+position = Vector2( 282, 523.818 )
+
+[node name="Credit" parent="." instance=ExtResource( 13 )]
+position = Vector2( 82.1379, -4950.71 )
+
+[node name="ThankYou" type="RigidBody2D" parent="."]
+position = Vector2( 208.61, -9790.77 )
+collision_layer = 3
+mode = 1
+mass = 2.64
+gravity_scale = 3.64
+can_sleep = false
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="ThankYou"]
+margin_left = -1621.52
+margin_top = -589.58
+margin_right = 1449.48
+margin_bottom = 481.42
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Thank you
+for playing <3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ThankYou"]
+position = Vector2( 0, -0.629959 )
+polygon = PoolVector2Array( -143.246, 13.0283, -120.619, -111.422, -18.7954, -213.245, 94.3417, -134.05, 184.852, 58.2832, 26.4593, 160.106, -131.933, 137.479 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GravityZone" type="Area2D" parent="ThankYou"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThankYou/GravityZone"]
+shape = SubResource( 6 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ThankYou"]
+stream = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Credit5" type="RigidBody2D" parent="."]
+position = Vector2( 594.918, -6972.17 )
+collision_layer = 3
+mode = 1
+mass = 2.64
+gravity_scale = 3.64
+can_sleep = false
+script = ExtResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="Credit5"]
+position = Vector2( -0.707092, 1.41421 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Credit5"]
+margin_left = -264.758
+margin_top = 105.16
+margin_right = 235.242
+margin_bottom = 191.16
+custom_fonts/font = SubResource( 8 )
+text = "@jajalecapouet"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Credit5"]
+position = Vector2( 0, -0.629959 )
+polygon = PoolVector2Array( -163.631, -158.852, 160.224, -156.731, 159.517, 195.409, -162.216, 179.852 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GravityZone" type="Area2D" parent="Credit5"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Credit5/GravityZone"]
+shape = SubResource( 9 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Credit5"]
+stream = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Credit4" type="RigidBody2D" parent="."]
+position = Vector2( 72.6243, -6710.74 )
+collision_layer = 3
+mode = 1
+mass = 2.64
+gravity_scale = 3.64
+can_sleep = false
+script = ExtResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="Credit4"]
+position = Vector2( -0.707092, 1.41421 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Credit4"]
+margin_left = -183.758
+margin_top = 105.16
+margin_right = 171.242
+margin_bottom = 191.16
+custom_fonts/font = SubResource( 8 )
+text = "@olddadou"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Credit4"]
+position = Vector2( 0, -0.629959 )
+polygon = PoolVector2Array( -163.631, -158.852, 160.224, -156.731, 159.517, 195.409, -162.216, 179.852 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GravityZone" type="Area2D" parent="Credit4"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Credit4/GravityZone"]
+shape = SubResource( 9 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Credit4"]
+stream = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Credit3" type="RigidBody2D" parent="."]
+position = Vector2( 299.179, -6092.12 )
+collision_layer = 3
+mode = 1
+mass = 2.64
+gravity_scale = 3.64
+can_sleep = false
+script = ExtResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="Credit3"]
+position = Vector2( -0.707092, 1.41421 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Credit3"]
+margin_left = -229.758
+margin_top = 105.16
+margin_right = 234.242
+margin_bottom = 191.16
+custom_fonts/font = SubResource( 8 )
+text = "@ptitbouchon"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Credit3"]
+position = Vector2( 0, -0.629959 )
+polygon = PoolVector2Array( -163.631, -158.852, 160.224, -156.731, 159.517, 195.409, -162.216, 179.852 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GravityZone" type="Area2D" parent="Credit3"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Credit3/GravityZone"]
+shape = SubResource( 9 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Credit3"]
+stream = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Credit2" type="RigidBody2D" parent="."]
+position = Vector2( 591.385, -5486.44 )
+collision_layer = 3
+mode = 1
+mass = 2.64
+gravity_scale = 3.64
+can_sleep = false
+script = ExtResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="Credit2"]
+position = Vector2( -0.707092, 1.41421 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Credit2"]
+margin_left = -155.758
+margin_top = 105.16
+margin_right = 149.242
+margin_bottom = 191.16
+custom_fonts/font = SubResource( 8 )
+text = "@Avzgui"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Credit2"]
+position = Vector2( 0, -0.629959 )
+polygon = PoolVector2Array( -163.631, -158.852, 160.224, -156.731, 159.517, 195.409, -162.216, 179.852 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GravityZone" type="Area2D" parent="Credit2"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Credit2/GravityZone"]
+shape = SubResource( 9 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Credit2"]
+stream = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Step3" parent="." instance=ExtResource( 21 )]
+
+[node name="Score" parent="." instance=ExtResource( 22 )]
+visible = false
+
+[node name="PleinDObjets" parent="." instance=ExtResource( 23 )]
+position = Vector2( 288.5, -4185.25 )
+mode = 1
+
+[connection signal="body_entered" from="ThankYou/GravityZone" to="ThankYou" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="ThankYou/GravityZone" to="ThankYou" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Credit5/GravityZone" to="Credit5" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Credit5/GravityZone" to="Credit5" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Credit4/GravityZone" to="Credit4" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Credit4/GravityZone" to="Credit4" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Credit3/GravityZone" to="Credit3" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Credit3/GravityZone" to="Credit3" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Credit2/GravityZone" to="Credit2" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Credit2/GravityZone" to="Credit2" method="_on_Area2D_body_exited"]
