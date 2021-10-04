@@ -11,22 +11,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	for object in tabObjets:
-		if object != self: #and object.mass <= self.mass:
-			var dist : float = (object.get_position() - self.get_position()).length()
-			var attractStrength : float = gravityStrength / (dist*dist)
-			var attractDirection : Vector2 = (self.get_position() - object.get_position()).normalized()
-			object.apply_central_impulse(attractDirection * attractStrength)
+	pass
+#	for object in tabObjets:
+#		if object != self: #and object.mass <= self.mass:
+#			var dist : float = (object.get_position() - self.get_position()).length()
+#			var attractStrength : float = gravityStrength / (dist*dist)
+#			var attractDirection : Vector2 = (self.get_position() - object.get_position()).normalized()
+#			object.apply_central_impulse(attractDirection * attractStrength)
 			
 		
-func _input(event):
-	if mouseOver == true:
-		if event is InputEventMouseButton:
-			if event.pressed:
-				if event.button_index == BUTTON_LEFT:
-					$Sprite/AnimationPlayer.play("Default")
-					Signals.emit_signal("ad_click")
-
 
 
 func _on_Area2D_body_entered(body):
@@ -37,7 +30,6 @@ func _on_Area2D_body_entered(body):
 		tabObjets.append(body)
 	
 
-
 func _on_Area2D_body_exited(body):
 	if body is RigidBody2D:
 		var i = tabObjets.find(body)
@@ -46,10 +38,3 @@ func _on_Area2D_body_exited(body):
 				
 
 
-func _on_Area2D_mouse_entered():
-	mouseOver = true
-
-
-func _on_Area2D_mouse_exited():
-	mouseOver = false 
-	$Sprite/AnimationPlayer.stop()
