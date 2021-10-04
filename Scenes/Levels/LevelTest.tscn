@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/LevelTest.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/Nuage.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/StartButton.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/BG/spritesheetBg.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Score.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "BgGlitch"
@@ -400,3 +401,5 @@ position = Vector2( 261.951, 302.449 )
 
 [node name="StartButton" parent="." instance=ExtResource( 11 )]
 position = Vector2( 282, 523.818 )
+
+[node name="Score" parent="." instance=ExtResource( 13 )]

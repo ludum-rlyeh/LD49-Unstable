@@ -24,6 +24,10 @@ func on_timer_timeout():
 		call_deferred("_add_falling_object", falling_object[0], falling_object[1])
 	#BackgroundGlitch
 	glichBgRng()
+	if $Score.glitchScore == 0:
+		updateScore()
+	else:
+		updateGlitchScore()
 
 func _add_falling_object(falling_object : RigidBody2D, init_global_position : Vector2):
 	add_child(falling_object)
@@ -38,8 +42,11 @@ func _process(delta):
 			new_pos.y -= get_viewport_rect().size.y
 			_current_height += get_viewport_rect().size.y
 			update_height = true
+			$Score.uPPosition()
 			Signals.emit_signal("popper_height_changed", _current_height)
 			$Popper.update_height(new_pos)
+			#Change vitesse player
+			$Player2.speedScale += 1
 
 func on_height_updated():
 	update_height = false
@@ -64,3 +71,15 @@ func glitchBg(i):
 	else:		
 		animation_player.play("BgGlitch")
 		
+func updateScore():
+	$Score.score = $Player2.objectsInZone
+	if $Score.score > 25:
+		$Score.score = -999
+		$Score.glitchScore = 1
+		$Player2.speedScale = 5
+		
+
+func updateGlitchScore():
+	$Score.score -= 1
+	$Score.mode = RigidBody2D.MODE_RIGID
+	$Score/CollisionPolygon2D.disabled = false	

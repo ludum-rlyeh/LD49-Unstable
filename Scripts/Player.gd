@@ -6,6 +6,8 @@ export (Vector2) var speed = Vector2(1, 0)
 var _wheels : Array = []
 onready var _head_pos_init = $Head.position
 var normalControls = 1
+var objectsInZone = -3
+var speedScale = 1
 
 func _init():
 	set_process(true)
@@ -29,7 +31,6 @@ func _process(delta):
 		$ChainAnimated.play("idle")
 		
 	last_pos = position
-	
 
 func _physics_process(delta):
 	var v = speed
@@ -37,10 +38,22 @@ func _physics_process(delta):
 		v = -speed
 
 	if Input.is_action_pressed("ui_right"):
-		move_and_collide(v * delta)
+		move_and_collide(v * delta * speedScale)
 	elif Input.is_action_pressed("ui_left"):
-		move_and_collide(-v * delta)
+		move_and_collide(-v * delta * speedScale)
 
 func _on_HeadDownTimer_timeout():
 	$AnimationPlayer.play("head_down")
 	$HeadDownTimer.start()
+
+
+func _on_Area2D_body_entered(body):
+	if(body is RigidBody2D):
+		objectsInZone += 1
+	
+
+
+func _on_Area2D_body_exited(body):
+	objectsInZone -= 1
+
+
