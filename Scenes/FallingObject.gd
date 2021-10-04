@@ -3,7 +3,7 @@ extends RigidBody2D
 export (float) var gravityStrength = 10000
 
 var tabObjets:Array = []
-
+var mouseOver = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -19,7 +19,13 @@ func _physics_process(delta):
 			object.apply_central_impulse(attractDirection * attractStrength)
 			
 		
-
+func _input(event):
+	if mouseOver == true:
+		if event is InputEventMouseButton:
+			if event.pressed:
+				if event.button_index == BUTTON_LEFT:
+					$Sprite/AnimationPlayer.play("Default")
+					Signals.emit_signal("ad_click")
 
 
 
@@ -38,3 +44,12 @@ func _on_Area2D_body_exited(body):
 		if i != -1:
 			tabObjets.remove(i)
 				
+
+
+func _on_Area2D_mouse_entered():
+	mouseOver = true
+
+
+func _on_Area2D_mouse_exited():
+	mouseOver = false 
+	$Sprite/AnimationPlayer.stop()

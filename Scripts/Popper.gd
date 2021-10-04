@@ -35,6 +35,7 @@ func _init():
 	dir.list_dir_end()
 
 func _ready():
+	Signals.connect("ad_click", self, "on_ad_click")
 	$Timer.connect("timeout", self, "on_timer_timeout")
 	var viewport_size_x = get_viewport_rect().size.x 
 	_min_x = viewport_size_x * (1 - range_viewport_ratio_patrol) * 0.5
@@ -61,8 +62,7 @@ func pop_object_with_initial_position():
 		_can_drop = false
 		_pin.set_node_b("")
 		$Timer.start(seconds_between_pops)
-		$AudioStreamPlayer2D.play()
-		
+		$AudioStreamPlayer2D.play()		
 		var init_global_position = _next_object.global_position
 		call_deferred("remove_child", _next_object)
 		return [_next_object, init_global_position]
@@ -80,3 +80,5 @@ func on_timer_timeout():
 func update_height(pos):
 	_new_pos = pos
 	
+func on_ad_click():
+	seconds_between_pops = 0.1

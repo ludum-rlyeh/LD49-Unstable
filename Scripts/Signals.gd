@@ -6,3 +6,4 @@ signal score_changed
 
 signal game_started
 signal step_changed
+signal ad_click

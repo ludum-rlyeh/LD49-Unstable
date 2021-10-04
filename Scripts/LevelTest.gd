@@ -15,6 +15,7 @@ func _ready():
 	_current_height = get_viewport_rect().size.y
 	Signals.connect("height_updated", self, "on_height_updated")
 	Signals.connect("game_started", self, "on_game_started")
+	Signals.connect("ad_click", self, "on_ad_click")
 	$Timer.connect("timeout", self, "on_timer_timeout")
 	get_tree().paused = true
 
@@ -22,6 +23,7 @@ func on_game_started():
 	$Scorer.visible = true
 	$Cursor.visible = true
 	$Popper.visible = true
+	$Score.visible = true
 	get_tree().paused = false
 
 func on_timer_timeout():
@@ -96,9 +98,18 @@ func updateScore():
 		$Score.score = -999
 		$Score.glitchScore = 1
 		$Player2.speedScale = 5
+		$PleinDObjets.mode = RigidBody2D.MODE_RIGID
+		$PleinDObjets/CollisionPolygon2D.disabled = false
 		
 
 func updateGlitchScore():
 	$Score.score -= 1
 	$Score.mode = RigidBody2D.MODE_RIGID
 	$Score/CollisionPolygon2D.disabled = false	
+
+func on_ad_click():
+	$Timer.wait_time = 0.1
+	$Timer/CriticalTimer.start()
+	yield($Timer/CriticalTimer,"timeout")
+	$Popper.seconds_between_pops = 1
+	$Timer.wait_time = 2
