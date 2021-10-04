@@ -23,8 +23,7 @@ func satellite_explodes():
 func on_step_changed(step):
 	if step == 2:
 		$Orbit/PathFollow/Satellite/SatelliteAnimationPlayer.play("orbit")
-		var timer = round(rand_range(1, 4)) * rand_range(1, 10) * 0.5
-		$Orbit/PathFollow/Satellite/Fall.wait_time = timer
+		$Orbit/PathFollow/Satellite/Fall.wait_time = 13
 		$Orbit/PathFollow/Satellite/Fall.start()
 
 func _on_Fall_timeout():
