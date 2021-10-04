@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export (float) var gravityStrength = 50000
+export (float) var gravityStrength = 10000
 
 var tabObjets:Array = []
 

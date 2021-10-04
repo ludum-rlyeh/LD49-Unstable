@@ -3,7 +3,13 @@ extends Node2D
 var _current_height = 0
 var update_height = false
 var bgIndex = 1
+
+var _height_step = 0
+
+export (bool) var debug = false
+
 onready var animation_player = $BG/BgGlitchAnimation
+var can_bgrng = false
 
 func _ready():
 	_current_height = get_viewport_rect().size.y
@@ -23,11 +29,12 @@ func on_timer_timeout():
 	if falling_object != null :
 		call_deferred("_add_falling_object", falling_object[0], falling_object[1])
 	#BackgroundGlitch
-	glichBgRng()
 	if $Score.glitchScore == 0:
 		updateScore()
 	else:
 		updateGlitchScore()
+	if can_bgrng :
+		glichBgRng()
 
 func _add_falling_object(falling_object : RigidBody2D, init_global_position : Vector2):
 	add_child(falling_object)
@@ -37,16 +44,28 @@ func _add_falling_object(falling_object : RigidBody2D, init_global_position : Ve
 func _process(delta):
 	
 	if not update_height :
-		var new_pos = $Popper.position
 		if abs($Scorer.position.y - $Popper.position.y) < _current_height / 3.0:
-			new_pos.y -= get_viewport_rect().size.y
-			_current_height += get_viewport_rect().size.y
-			update_height = true
-			$Score.uPPosition()
-			Signals.emit_signal("popper_height_changed", _current_height)
-			$Popper.update_height(new_pos)
-			#Change vitesse player
-			$Player2.speedScale += 1
+			_update_step()
+				
+	if not can_bgrng and int(round($Scorer.score * 10.0)) > 100:
+		can_bgrng = true
+			
+	if debug:
+		if Input.is_action_just_pressed("ui_up"):
+			_update_step()
+				
+func _update_step():
+	var new_pos = $Popper.position
+	new_pos.y -= get_viewport_rect().size.y
+	_current_height += get_viewport_rect().size.y
+	update_height = true
+	$Score.uPPosition()
+	_height_step += 1
+	Signals.emit_signal("popper_height_changed", _current_height)
+	Signals.emit_signal("step_changed", _height_step)
+	$Popper.update_height(new_pos)
+	#Change vitesse player
+	$Player2.speedScale += 2
 
 func on_height_updated():
 	update_height = false

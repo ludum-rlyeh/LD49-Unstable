@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/SpecialObjects/Satellite.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Step4.gd" type="Script" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -3062.27, -688.017, -812.736, -210.799, 812.736, 210.799, -1539.12, -561.486, 0, 0, 0, 0, -312.276, -9.13422, 0, 0, 0, 0, -312.276, -9.13422 )
+}
+
+[sub_resource type="PhysicsMaterial" id=2]
+rough = true
+absorbent = true
+
+[sub_resource type="Animation" id=3]
+resource_name = "orbit"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Orbit/PathFollow:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 2883.79 ]
+}
+
+[node name="Step3" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Orbit" type="Path2D" parent="."]
+position = Vector2( 2201.14, -1074.93 )
+rotation = -0.261799
+scale = Vector2( 1.09577, 1.29564 )
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow2D" parent="Orbit"]
+position = Vector2( -3062.27, -688.017 )
+rotation = -0.179732
+rotate = false
+cubic_interp = false
+loop = false
+
+[node name="Satellite" parent="Orbit/PathFollow" instance=ExtResource( 1 )]
+physics_material_override = SubResource( 2 )
+
+[node name="SatelliteAnimationPlayer" type="AnimationPlayer" parent="Orbit/PathFollow/Satellite"]
+root_node = NodePath("../../../..")
+anims/orbit = SubResource( 3 )
+
+[node name="Fall" type="Timer" parent="Orbit/PathFollow/Satellite"]
+wait_time = 4.6
+one_shot = true
+
+[connection signal="timeout" from="Orbit/PathFollow/Satellite/Fall" to="." method="_on_Fall_timeout"]
