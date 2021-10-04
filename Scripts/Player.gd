@@ -17,6 +17,8 @@ func _ready():
 		_wheels.append(child)
 		
 	var error = Signals.connect("popper_height_changed", self, "_on_height_changed")
+	Signals.connect("game_started", self, "_on_game_started")
+	
 		
 func _on_height_changed(height):
 	$Arms/ArmRight.unfold(height)
@@ -62,5 +64,9 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_body_exited(body):
 	objectsInZone -= 1
+
+func _on_game_started():
+	$LeftKey.visible = false
+	$RightKey.visible = false
 
 
