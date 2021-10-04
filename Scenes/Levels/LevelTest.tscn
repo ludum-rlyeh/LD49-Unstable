@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/LevelTest.gd" type="Script" id=2]
@@ -23,6 +23,17 @@
 [ext_resource path="res://Scenes/Levels/Step3.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Score.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/PleinDObjets.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/SpecialObjects/BrokenBG.tscn" type="PackedScene" id=24
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends Sprite
+
+func _ready():
+	Signals.connect(\"game_ended\", self, \"on_game_ended\")
+	
+func on_game_ended():
+	self.hide()
+"
 
 [sub_resource type="Animation" id=1]
 resource_name = "BgGlitch"
@@ -373,10 +384,15 @@ extents = Vector2( 213.964, 225.243 )
 script = ExtResource( 2 )
 debug = true
 
+[node name="BrokenBG" parent="." instance=ExtResource( 23 )]
+visible = false
+position = Vector2( 308.595, -798.316 )
+
 [node name="BG" type="Sprite" parent="."]
 position = Vector2( 292.814, -798.17 )
 texture = ExtResource( 12 )
 hframes = 2
+script = SubResource( 10 )
 
 [node name="BgGlitchAnimation" type="AnimationPlayer" parent="BG"]
 playback_speed = 4.0
