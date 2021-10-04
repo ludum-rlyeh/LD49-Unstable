@@ -8,7 +8,7 @@
 [ext_resource path="res://Assets/BG/BG/new_tiles2et.tres" type="TileSet" id=6]
 [ext_resource path="res://Assets/BG/BG/new_tileset.tres" type="TileSet" id=7]
 
-[node name="LevelTest" type="Node2D"]
+[node name="LevelTest2" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="BG2" type="TileMap" parent="."]
