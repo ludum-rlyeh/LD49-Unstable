@@ -48,7 +48,6 @@ func glichBgRng():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var randNumber = rng.randf_range(0, 1)
-	print(randNumber)
 	if randNumber > 0.80:
 			glitchBg(1)
 			get_viewport().render_target_v_flip = false
@@ -61,9 +60,7 @@ func glichBgRng():
 		
 func glitchBg(i):
 	if i == 1:		
-		print("ok")
 		animation_player.play("BgNonGlitch")
 	else:		
-		print("nonok")
 		animation_player.play("BgGlitch")
 		

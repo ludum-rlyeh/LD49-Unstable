@@ -67,7 +67,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -90.0, -90.0, -180.0 ]
+"values": [ -90.0, -90.0, -160.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("StaticBody2D:rotation_degrees")
@@ -79,7 +79,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -90.0, -90.0, -180.0 ]
+"values": [ -90.0, -90.0, -160.0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Particles2D:emitting")
