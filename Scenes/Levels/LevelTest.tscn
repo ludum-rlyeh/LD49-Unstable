@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/LevelTest.gd" type="Script" id=2]
@@ -12,8 +12,7 @@
 [ext_resource path="res://Scenes/Nuage.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/StartButton.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/BG/spritesheetBg.png" type="Texture" id=12]
-[ext_resource path="res://Scenes/SpecialObjects/Satellite.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scripts/Step4.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/Levels/Step3.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "BgGlitch"
@@ -339,28 +338,6 @@ tracks/0/keys = {
 rough = true
 absorbent = true
 
-[sub_resource type="Curve2D" id=5]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -3062.27, -688.017, -812.736, -210.799, 812.736, 210.799, -1539.12, -561.486, 0, 0, 0, 0, -312.276, -9.13422, 0, 0, 0, 0, -312.276, -9.13422 )
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "orbit"
-length = 10.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Orbit/PathFollow:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 2883.79 ]
-}
-
 [node name="LevelTest" type="Node2D"]
 script = ExtResource( 2 )
 debug = true
@@ -433,30 +410,4 @@ position = Vector2( 261.951, 302.449 )
 [node name="StartButton" parent="." instance=ExtResource( 11 )]
 position = Vector2( 282, 523.818 )
 
-[node name="Step3" type="Node2D" parent="."]
-script = ExtResource( 14 )
-
-[node name="Orbit" type="Path2D" parent="Step3"]
-position = Vector2( 2201.14, -1074.93 )
-rotation = -0.261799
-scale = Vector2( 1.09577, 1.29564 )
-curve = SubResource( 5 )
-
-[node name="PathFollow" type="PathFollow2D" parent="Step3/Orbit"]
-position = Vector2( -3062.27, -688.017 )
-rotation = -0.179732
-rotate = false
-cubic_interp = false
-loop = false
-
-[node name="Satellite" parent="Step3/Orbit/PathFollow" instance=ExtResource( 13 )]
-
-[node name="SatelliteAnimationPlayer" type="AnimationPlayer" parent="Step3/Orbit/PathFollow/Satellite"]
-root_node = NodePath("../../../..")
-anims/orbit = SubResource( 6 )
-
-[node name="Fall" type="Timer" parent="Step3/Orbit/PathFollow/Satellite"]
-wait_time = 4.6
-one_shot = true
-
-[connection signal="timeout" from="Step3/Orbit/PathFollow/Satellite/Fall" to="Step3" method="_on_Fall_timeout"]
+[node name="Step3" parent="." instance=ExtResource( 13 )]
