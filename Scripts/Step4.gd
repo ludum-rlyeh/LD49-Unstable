@@ -25,6 +25,7 @@ func on_step_changed(step):
 		$Orbit/PathFollow/Satellite/SatelliteAnimationPlayer.play("orbit")
 		$Orbit/PathFollow/Satellite/Fall.wait_time = 13
 		$Orbit/PathFollow/Satellite/Fall.start()
+		$Meteor/AnimationPlayer.play("falling")
 
 func _on_Fall_timeout():
 	satellite_explodes()
