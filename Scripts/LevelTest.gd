@@ -9,18 +9,28 @@ var _height_step = 0
 export (bool) var debug = false
 
 onready var animation_player = $BG/BgGlitchAnimation
+var can_bgrng = false
 
 func _ready():
 	_current_height = get_viewport_rect().size.y
 	Signals.connect("height_updated", self, "on_height_updated")
+	Signals.connect("game_started", self, "on_game_started")
 	$Timer.connect("timeout", self, "on_timer_timeout")
+	get_tree().paused = true
+
+func on_game_started():
+	$Scorer.visible = true
+	$Cursor.visible = true
+	$Popper.visible = true
+	get_tree().paused = false
 
 func on_timer_timeout():
 	var falling_object = $Popper.pop_object_with_initial_position()
 	if falling_object != null :
 		call_deferred("_add_falling_object", falling_object[0], falling_object[1])
 	#BackgroundGlitch
-	glichBgRng()
+	if can_bgrng :
+		glichBgRng()
 
 func _add_falling_object(falling_object : RigidBody2D, init_global_position : Vector2):
 	add_child(falling_object)
@@ -32,10 +42,13 @@ func _process(delta):
 	if not update_height :
 		if abs($Scorer.position.y - $Popper.position.y) < _current_height / 3.0:
 			_update_step()
+				
+	if not can_bgrng and int(round($Scorer.score * 10.0)) > 100:
+		can_bgrng = true
 			
-		if debug:
-			if Input.is_action_just_pressed("ui_up"):
-				_update_step()
+	if debug:
+		if Input.is_action_just_pressed("ui_up"):
+			_update_step()
 				
 func _update_step():
 	var new_pos = $Popper.position

@@ -2,7 +2,7 @@ extends "res://Scenes/FallingObject.gd"
 
 var initial_y = 0
 var speed = 100
-var max_score = 150
+var max_score = 100
 
 func _ready():
 	initial_y = self.position.y
