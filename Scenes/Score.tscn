@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/FallingObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/BrokenMachine.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Score.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 1
+font_data = ExtResource( 2 )
+
+[node name="Score" instance=ExtResource( 1 )]
+mode = 1
+mass = 0.28
+script = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PoolVector2Array( 0.72699, 48.9568, 197.257, 48.4271, 196.198, 124.179, 0.72699, 124.179 )
+disabled = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="GravityZone" index="0"]
+polygon = PoolVector2Array( -5.62979, 45.2487, 13.4406, 29.8865, 196.198, 30.4162, 232.22, 89.2164, 195.668, 157.022, -3.51086, 154.903, -44.8299, 76.5029 )
+disabled = true
+
+[node name="Label" type="Label" parent="." index="2"]
+margin_right = 45.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.909804, 0.721569, 0.0823529, 1 )
+custom_colors/font_outline_modulate = Color( 0.596078, 0.027451, 0.027451, 1 )
+text = "000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
