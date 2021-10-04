@@ -1,6 +1,6 @@
 extends Node2D
 
-export (int) var score_end = 200
+export (int) var score_end = 170
 
 var _current_height = 0
 var update_height = false
@@ -51,7 +51,7 @@ func _add_falling_object(falling_object : RigidBody2D, init_global_position : Ve
 
 func _process(delta):
 	if not update_height :
-		if countGlitch < 3 and abs($Scorer.position.y - $Popper.position.y) < _current_height / 3.0:
+		if countGlitch < 3 and abs($Scorer.position.y - $Popper.position.y) < _current_height / 2.5:
 			_update_step()
 			
 	if debug:
@@ -118,3 +118,5 @@ func glitch():
 	if(countGlitch == 3):
 		Signals.emit_signal("etoile_fall")
 		can_bgrng = false
+		if get_viewport().render_target_v_flip:
+			glichBgRng()
