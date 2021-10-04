@@ -11,13 +11,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	pass
-#	for object in tabObjets:
-#		if object != self: #and object.mass <= self.mass:
-#			var dist : float = (object.get_position() - self.get_position()).length()
-#			var attractStrength : float = gravityStrength / (dist*dist)
-#			var attractDirection : Vector2 = (self.get_position() - object.get_position()).normalized()
-#			object.apply_central_impulse(attractDirection * attractStrength)
+	for object in tabObjets:
+		if object != self: #and object.mass <= self.mass:
+			var dist : float = (object.get_position() - self.get_position()).length()
+			var attractStrength : float = gravityStrength / (dist*dist)
+			var attractDirection : Vector2 = (self.get_position() - object.get_position()).normalized()
+			object.apply_central_impulse(attractDirection * attractStrength)
 			
 		
 
