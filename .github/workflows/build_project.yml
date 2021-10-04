@@ -69,6 +69,7 @@ jobs:
       - run: |
               [ -d site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/ ] || mkdir -p site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
               # Move the recently build game
+              tree former-pages
               mv _build/* site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
               # Move old-builds with rsync
               rsync former-pages/games/ site/content/games
