@@ -1,12 +1,12 @@
 extends RigidBody2D
 
-export (float) var gravityStrength = 10000
+export (float) var gravityStrength = 100000
 
 var tabObjets:Array = []
 var mouseOver = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Signals.connect("etoile_fall", self, "on_etoile_fall")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,16 +20,11 @@ func _physics_process(delta):
 			
 		
 
-
 func _on_Area2D_body_entered(body):
-	if body != self and self.mode != RigidBody.MODE_RIGID:
-		var audio = $AudioStreamPlayer2D
-		if audio:
-			audio.play()
-		self.call_deferred("set_mode", RigidBody.MODE_RIGID)
 	if body is RigidBody2D and tabObjets.size() <20:
 		tabObjets.append(body)
 	
+
 
 func _on_Area2D_body_exited(body):
 	if body is RigidBody2D:
@@ -39,3 +34,8 @@ func _on_Area2D_body_exited(body):
 				
 
 
+func on_etoile_fall():	
+	self.call_deferred("set_mode", RigidBody2D.MODE_RIGID) 
+	$CollisionPolygon2D.disabled = false
+	$AudioStreamPlayer2D.play()
+	

@@ -6,7 +6,7 @@ var tabObjets:Array = []
 var mouseOver = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Signals.connect("ad_fall", self,"on_ad_fall") # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,17 +19,21 @@ func _physics_process(delta):
 			object.apply_central_impulse(attractDirection * attractStrength)
 			
 		
+func _input(event):
+	if mouseOver == true:
+		if event is InputEventMouseButton:
+			if event.pressed:
+				if event.button_index == BUTTON_LEFT:
+					$Sprite/AnimationPlayer.play("Default")
+					Signals.emit_signal("ad_click")
+
 
 
 func _on_Area2D_body_entered(body):
-	if body != self and self.mode != RigidBody.MODE_RIGID:
-		var audio = $AudioStreamPlayer2D
-		if audio:
-			audio.play()
-		self.call_deferred("set_mode", RigidBody.MODE_RIGID)
 	if body is RigidBody2D and tabObjets.size() <20:
 		tabObjets.append(body)
 	
+
 
 func _on_Area2D_body_exited(body):
 	if body is RigidBody2D:
@@ -39,3 +43,15 @@ func _on_Area2D_body_exited(body):
 				
 
 
+func _on_Area2D_mouse_entered():
+	mouseOver = true
+
+
+func _on_Area2D_mouse_exited():
+	mouseOver = false 
+	$Sprite/AnimationPlayer.stop()
+
+func on_ad_fall():
+	print("adfall")
+	self.call_deferred("set_mode", RigidBody2D.MODE_RIGID) 
+	$CollisionPolygon2D.disabled = false

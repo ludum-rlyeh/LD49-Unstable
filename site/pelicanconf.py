@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- #
 
 AUTHOR = 'Adrien Faure'
-SITENAME = 'LuK-2000 and the Fragments of the Past'
+SITENAME = 'Lift-up machine - Nightly version'
 SITEURL = ''
 
 PATH = 'content'

@@ -8,3 +8,5 @@ signal game_started
 signal step_changed
 signal game_ended
 signal ad_click
+signal etoile_fall
+signal ad_fall
