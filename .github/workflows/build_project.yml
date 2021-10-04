@@ -68,11 +68,9 @@ jobs:
           ref: gh-pages
       - run: |
               [ -d site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/ ] || mkdir -p site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
+              mv former-pages/games/* site/content/games
               # Move the recently build game
-              tree former-pages
               mv _build/* site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
-              # Move old-builds with rsync
-              rsync former-pages/games/ site/content/games
               tree site
               python .github/workflows/generate_build_page.py site/content/games > site/content/pages/builds.md
               pip install -r site/requirements.txt
