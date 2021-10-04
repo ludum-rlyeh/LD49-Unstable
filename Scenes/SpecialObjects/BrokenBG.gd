@@ -24,8 +24,6 @@ func _piece_falls(id):
 	piece.mode = RigidBody2D.MODE_RIGID
 	var signe = randi() % 2 * 2 - 1
 	piece.add_force(Vector2(0, rand_range(500, 800)), Vector2(signe * rand_range(1000, 2000), 0))
-	piece.set_collision_mask_bit(0, true)
-	piece.set_collision_layer_bit(0, true)
 
 
 func _on_TitleTimer_timeout():
