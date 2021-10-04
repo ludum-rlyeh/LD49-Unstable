@@ -373,7 +373,17 @@ tile_set = SubResource( 3 )
 format = 1
 
 [node name="Nuage" parent="." instance=ExtResource( 10 )]
-position = Vector2( -67.8789, -568.513 )
+position = Vector2( 137.512, -180.099 )
+physics_material_override = SubResource( 4 )
+
+[node name="Nuage2" parent="." instance=ExtResource( 10 )]
+position = Vector2( -118.488, -766.099 )
+rotation = -2.56738
+physics_material_override = SubResource( 4 )
+
+[node name="Nuage3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 684.171, -602.187 )
+rotation = -3.24457
 physics_material_override = SubResource( 4 )
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
