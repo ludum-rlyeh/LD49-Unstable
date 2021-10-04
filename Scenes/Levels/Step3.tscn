@@ -68,7 +68,7 @@ scale = Vector2( 1.09577, 1.29564 )
 curve = SubResource( 1 )
 
 [node name="PathFollow" type="PathFollow2D" parent="Orbit"]
-position = Vector2( -1345.58, -506.745 )
+position = Vector2( -1345.59, -506.746 )
 rotation = -0.179732
 offset = 1730.27
 rotate = false
@@ -87,9 +87,22 @@ wait_time = 4.6
 one_shot = true
 
 [node name="Meteor" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1600, -2608 )
+position = Vector2( 711.36, -2733.76 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Meteor"]
 anims/falling = SubResource( 4 )
 
+[node name="Meteors" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="Meteors"]
+wait_time = 7.0
+one_shot = true
+
+[node name="Position2D2" type="Position2D" parent="Meteors"]
+position = Vector2( 1680, -2744 )
+
+[node name="Position2D" type="Position2D" parent="Meteors"]
+position = Vector2( -968, -2712 )
+
 [connection signal="timeout" from="Orbit/PathFollow/Satellite/Fall" to="." method="_on_Fall_timeout"]
+[connection signal="timeout" from="Meteors/Timer" to="." method="_on_Timer_timeout"]
