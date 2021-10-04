@@ -13,7 +13,6 @@ func on_score_changed(score):
 
 func update_status(score):
 	$Label.text = String(int(round(score * 10.0)))
-	
 	if self.mode != RigidBody2D.MODE_RIGID:
 		if int(round(score * 10.0)) < max_score:
 			if self.position.y <= initial_y :
