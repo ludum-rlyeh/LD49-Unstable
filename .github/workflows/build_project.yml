@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - "CI"
+      - "release-ld49"
 jobs:
   Build-HTML5:
     runs-on: ubuntu-latest

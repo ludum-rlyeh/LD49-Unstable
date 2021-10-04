@@ -16,9 +16,14 @@ func _ready():
 	_current_height = get_viewport_rect().size.y
 	Signals.connect("height_updated", self, "on_height_updated")
 	Signals.connect("game_started", self, "on_game_started")
+	Signals.connect("score_changed", self, "on_score_changed")
 	Signals.connect("ad_click", self, "on_ad_click")
 	$Timer.connect("timeout", self, "on_timer_timeout")
 	get_tree().paused = true
+	
+func on_score_changed(score):
+	if score >= $ThankYou.score_end:
+		Signals.emit_signal("game_ended")
 
 func on_game_started():
 	$Scorer.visible = true
