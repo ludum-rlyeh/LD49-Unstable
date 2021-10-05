@@ -86,3 +86,4 @@ jobs:
         with:
           branch: gh-pages
           folder: site/output
+          single-commit: true
