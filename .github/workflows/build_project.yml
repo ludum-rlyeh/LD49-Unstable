@@ -72,8 +72,9 @@ jobs:
               # Move the recently build game
               mv _build/* site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
 
+              # Clear previous build
+              rm -r site/content/games/${GIT_BRANCH}/latest
               # Create link for last build
-              mkdir -p site/content/games/${GIT_BRANCH}/latest
               ln -s site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/ site/content/games/${GIT_BRANCH}/latest/
               tree site
 
