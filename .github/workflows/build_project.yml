@@ -71,9 +71,10 @@ jobs:
               rsync -r former-pages/games/* site/content/games
               # Move the recently build game
               mv _build/* site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
+
               # Create link for last build
               mkdir -p site/content/games/${GIT_BRANCH}/latest
-              ln -s site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/ site/content/games/${GIT_BRANCH}/latest/
+              ln -s site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/LD${LD}-$(git rev-parse --short "$GITHUB_SHA").html site/content/games/${GIT_BRANCH}/latest/index.html
               tree site
 
               python .github/workflows/generate_build_page.py site/content/games > site/content/pages/builds.md
