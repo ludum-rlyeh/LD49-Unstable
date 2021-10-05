@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/PleinDObjets.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 681.038
+radius = 351.279
 height = 0.0
 
 [sub_resource type="Animation" id=2]
@@ -27,7 +27,7 @@ tracks/0/keys = {
 extents = Vector2( 127.662, 252.925 )
 
 [node name="PleinDObjets" instance=ExtResource( 1 )]
-mass = 92.81
+mass = 20.0
 script = ExtResource( 3 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="0"]
@@ -43,8 +43,9 @@ disabled = true
 position = Vector2( 0, -1.05946 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityZone" index="0"]
-position = Vector2( 77.918, 271.111 )
+position = Vector2( 7.28275, 298.02 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Sprite" type="Sprite" parent="." index="3"]
 position = Vector2( 0.354317, 297.349 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/LevelTest.gd" type="Script" id=2]
@@ -21,10 +21,10 @@
 [ext_resource path="res://Assets/Members/dadou.jpg" type="Texture" id=19]
 [ext_resource path="res://Assets/Members/jaja.png" type="Texture" id=20]
 [ext_resource path="res://Scenes/Levels/Step3.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/SpecialObjects/BrokenBG.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/PleinDObjets.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Etoiles.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Scenes/SpecialObjects/BrokenBG.tscn" type="PackedScene" id=24]
-
+[ext_resource path="res://Scenes/Levels/RemoveZone.gd" type="Script" id=25]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Sprite
@@ -379,10 +379,13 @@ font_data = ExtResource( 16 )
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 213.964, 225.243 )
 
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 6000, 50 )
+
 [node name="LevelTest" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="BrokenBG" parent="." instance=ExtResource( 24 )]
+[node name="BrokenBG" parent="." instance=ExtResource( 22 )]
 visible = false
 position = Vector2( 308.595, -798.316 )
 
@@ -418,6 +421,7 @@ autoplay = true
 bus = "Background"
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [node name="CriticalTimer" type="Timer" parent="Timer"]
@@ -732,7 +736,7 @@ __meta__ = {
 [node name="Step3" parent="." instance=ExtResource( 21 )]
 
 [node name="PleinDObjets" parent="." instance=ExtResource( 23 )]
-position = Vector2( 274.245, -2061.35 )
+position = Vector2( 276.361, -3408.37 )
 mode = 1
 
 [node name="Etoiles2" parent="." instance=ExtResource( 24 )]
@@ -752,7 +756,7 @@ position = Vector2( -136.248, -3799.76 )
 mode = 1
 
 [node name="Etoiles6" parent="." instance=ExtResource( 24 )]
-position = Vector2( 762.245, -3402.08 )
+position = Vector2( 744.286, -3402.08 )
 mode = 1
 
 [node name="Etoiles7" parent="." instance=ExtResource( 24 )]
@@ -762,6 +766,23 @@ mode = 1
 [node name="Etoiles8" parent="." instance=ExtResource( 24 )]
 position = Vector2( 902.299, -5441.14 )
 mode = 1
+
+[node name="RemoveZone" type="Area2D" parent="."]
+script = ExtResource( 25 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RemoveZone"]
+position = Vector2( 6035.51, -1838.28 )
+rotation = -1.57079
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RemoveZone"]
+position = Vector2( -5924.66, -2007.34 )
+rotation = -1.57079
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RemoveZone"]
+position = Vector2( 38.3915, 3976.97 )
+shape = SubResource( 11 )
 
 [connection signal="body_entered" from="ThankYou/GravityZone" to="ThankYou" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="ThankYou/GravityZone" to="ThankYou" method="_on_Area2D_body_exited"]
@@ -773,3 +794,4 @@ mode = 1
 [connection signal="body_exited" from="Credit3/GravityZone" to="Credit3" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Credit2/GravityZone" to="Credit2" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Credit2/GravityZone" to="Credit2" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="RemoveZone" to="RemoveZone" method="_on_RemoveZone_body_entered"]

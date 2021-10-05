@@ -1,8 +1,11 @@
 extends Node2D
 
+export (int) var score_end = 170
+
 var _current_height = 0
 var update_height = false
 var bgIndex = 1
+var game_ended = false
 
 var _height_step = 0
 
@@ -22,7 +25,8 @@ func _ready():
 	get_tree().paused = true
 	
 func on_score_changed(score):
-	if score >= $ThankYou.score_end:
+	if int(round(score * 10.0)) > score_end:
+		game_ended = true
 		Signals.emit_signal("game_ended")
 
 func on_game_started():
@@ -46,17 +50,16 @@ func _add_falling_object(falling_object : RigidBody2D, init_global_position : Ve
 	
 
 func _process(delta):
-	glitch()
 	if not update_height :
-		if abs($Scorer.position.y - $Popper.position.y) < _current_height / 3.0:
+		if countGlitch < 3 and abs($Scorer.position.y - $Popper.position.y) < _current_height / 2.5:
 			_update_step()
-				
-	if not can_bgrng and int(round($Scorer.score * 10.0)) > 100:
-		can_bgrng = true
 			
 	if debug:
 		if Input.is_action_just_pressed("ui_up"):
 			_update_step()
+	if game_ended:
+		$AudioStreamPlayer.volume_db -= delta
+	
 				
 func _update_step():
 	var new_pos = $Popper.position
@@ -69,7 +72,9 @@ func _update_step():
 	$Popper.update_height(new_pos)
 	#Change vitesse player
 	countGlitch += 1
+	$Timer.wait_time -= 0.5
 	$Player2.speedScale * 2
+	glitch()
 		
 
 func on_height_updated():
@@ -82,11 +87,13 @@ func glichBgRng():
 	if randNumber > 0.80:
 			glitchBg(1)
 			get_viewport().render_target_v_flip = false
-			$Player2.normalControls = 1
+			if $Player2 != null :
+				$Player2.normalControls = 1
 	else:
 		if randNumber < 0.05:
 			get_viewport().render_target_v_flip = true
-			$Player2.normalControls = 0
+			if $Player2 != null :
+				$Player2.normalControls = 0
 			glitchBg(2)	 
 		
 func glitchBg(i):
@@ -104,8 +111,12 @@ func on_ad_click():
 	$Timer.wait_time = 2
 
 func glitch():
-	if(countGlitch == 1):
+	if(countGlitch == 2):
+		can_bgrng = true
 		Signals.emit_signal("ad_fall")
 		
 	if(countGlitch == 3):
 		Signals.emit_signal("etoile_fall")
+		can_bgrng = false
+		if get_viewport().render_target_v_flip:
+			glichBgRng()

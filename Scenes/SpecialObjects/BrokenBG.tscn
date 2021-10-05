@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/BG/piece3.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/SpecialObjects/BrokenBG.gd" type="Script" id=2]
 [ext_resource path="res://Assets/BG/piece1.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Fonts/BrokenMachine.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Assets/white.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/Dirty Classic Machine.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/BG/piece2.png" type="Texture" id=9]
 [ext_resource path="res://Assets/BG/piece5.png" type="Texture" id=11]
 [ext_resource path="res://Assets/BG/piece6.png" type="Texture" id=12]
@@ -18,7 +19,18 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 8.9769, 4.22827, 0, 0, 0, 0, 109.62, 3.29727, 0, 0, 0, 0, 839.566, -563.482, -13.2142, 251.071, 13.2142, -251.071, 1323.92, -1421.2, 111.377, 115.153, -111.377, -115.153, 1004.38, -2258.73, 440.781, -43.7416, -440.781, 43.7416, -196.418, -2484.09, 77.3977, -128.367, -77.3977, 128.367, -1081.04, -2036.73, -11.3265, -169.897, 11.3265, 169.897, -1205.49, -1310.2, -162.346, -118.928, 162.346, 118.928, -968.497, -656.807, -302.04, 5.66325, 302.04, -5.66325, -243.509, -365.03, -120.816, 101.938, 120.816, -101.938, 459.481, -550.027, -43.4182, 96.2752, 43.4182, -96.2752, 906.838, -1172.29, 120.816, 162.346, -120.816, -162.346, 906.838, -1723.92, 247.295, 33.9795, -247.295, -33.9795, 321.574, -2194.82, 124.591, -84.9487, -124.591, 84.9487, -438.597, -2117.46, 58.5202, -120.816, -58.5202, 120.816, -788.409, -1690.28, -16.9897, -132.142, 16.9897, 132.142, -827.708, -1172.25, 0, 0, 0, 0, -621.171, -779.327, -156.683, 35.8672, 156.683, -35.8672, -102.238, -711.48, -71.7239, 189.469, 71.7239, -189.469, 540.207, -983.93, 37.755, 113.265, -37.755, -113.265, 530.116, -1542.29, 58.5202, 28.3162, -58.5202, -28.3162, 166.849, -1861.83, 145.357, -43.4182, -145.357, 43.4182, -176.237, -1841.64, 49.0815, -130.255, -49.0815, 130.255, -441.96, -1599.47, 0, 0, 0, 0, -448.687, -1152.11, -47.1937, -39.6427, 47.1937, 39.6427, -279.469, -1015.48, -122.704, 26.4285, 122.704, -26.4285, 42.3963, -994.021, 0, 0, 0, 0, 220.666, -1162.2, 22.653, 37.755, -22.653, -37.755, 207.212, -1565.83, 100.051, 0, -100.051, 0, -1.33054, -1649.92, 0, 0, 0, 0, -149.328, -1508.65, 0, 0, 0, 0, -189.691, -1273.2, -66.0712, 1.88775, 66.0712, -1.88775, -105.602, -1142.02, 0, 0, 0, 0, -4.69406, -1205.93, 0, 0, 0, 0, -24.8755, -1347.2 )
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="DynamicFont" id=2]
+size = 120
+outline_size = 2
+outline_color = Color( 0.909804, 0.101961, 0.101961, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 44
+outline_size = 1
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=4]
 length = 3.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Spirale/PathFollow2D:unit_offset")
@@ -77,11 +89,55 @@ curve = SubResource( 1 )
 position = Vector2( 8.9769, 4.22827 )
 rotation = -0.00924992
 
-[node name="Title" parent="Spirale/PathFollow2D" instance=ExtResource( 4 )]
+[node name="Title" type="Node2D" parent="Spirale/PathFollow2D"]
 position = Vector2( -116.263, 0 )
 scale = Vector2( 3, 3 )
-mode = 1
-mass = 0.1
+
+[node name="Label" type="Label" parent="Spirale/PathFollow2D/Title"]
+margin_left = -267.111
+margin_top = -154.691
+margin_right = 238.889
+margin_bottom = 45.3094
+rect_rotation = -0.259318
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.909804, 0.721569, 0.0823529, 1 )
+custom_colors/font_outline_modulate = Color( 0.596078, 0.027451, 0.027451, 1 )
+text = "LIFT-UP"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Spirale/PathFollow2D/Title"]
+margin_left = -200.075
+margin_top = -62.4218
+margin_right = 335.925
+margin_bottom = 137.578
+rect_rotation = 0.00540179
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.909804, 0.721569, 0.0823529, 1 )
+custom_colors/font_outline_modulate = Color( 0.596078, 0.027451, 0.027451, 1 )
+text = "MACHINE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Spirale/PathFollow2D/Title"]
+margin_left = 1.47454
+margin_top = 88.5802
+margin_right = 293.475
+margin_bottom = 134.58
+rect_rotation = -12.7601
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.054902, 0.627451, 0.905882, 1 )
+custom_colors/font_outline_modulate = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+text = "nightly version"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TitleTimer" type="Timer" parent="Spirale/PathFollow2D/Title"]
 wait_time = 3.0
@@ -212,7 +268,7 @@ texture = ExtResource( 3 )
 polygon = PoolVector2Array( -373.161, -443.775, -370.641, -870.889, -1218.57, -1207.29, -1215.46, -436.204, -986.742, -24.2218 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/swallowed = SubResource( 2 )
+anims/swallowed = SubResource( 4 )
 
 [connection signal="timeout" from="Spirale/PathFollow2D/Title/TitleTimer" to="." method="_on_TitleTimer_timeout"]
 [connection signal="timeout" from="BreakTimer" to="." method="_on_BreakTimer_timeout"]
