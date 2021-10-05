@@ -69,10 +69,12 @@ jobs:
       - run: |
               [ -d site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/ ] || mkdir -p site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
               rsync -r former-pages/games/* site/content/games
-              tree site
               # Move the recently build game
               mv _build/* site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
-              tree site
+              # Create link for last build
+              mkdir -p site/content/games/${GIT_BRANCH}/latest
+              ln -s site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/ site/content/games/${GIT_BRANCH}/latest/
+
               python .github/workflows/generate_build_page.py site/content/games > site/content/pages/builds.md
               pip install -r site/requirements.txt
               cd site && make publish
