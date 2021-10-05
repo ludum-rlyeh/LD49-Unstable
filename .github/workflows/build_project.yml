@@ -74,6 +74,7 @@ jobs:
               # Create link for last build
               mkdir -p site/content/games/${GIT_BRANCH}/latest
               ln -s site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/ site/content/games/${GIT_BRANCH}/latest/
+              tree site
 
               python .github/workflows/generate_build_page.py site/content/games > site/content/pages/builds.md
               pip install -r site/requirements.txt
