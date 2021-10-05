@@ -2,6 +2,7 @@ import sys
 from pathlib import Path
 import subprocess
 from datetime import datetime
+import glob
 
 template = """Title: Builds
 
@@ -24,7 +25,7 @@ def get_commit_date(commit_sha):
 commits_by_branches = {}
 latests_by_branches = {}
 
-for path in Path(folder).rglob("*/index.html"):
+for path in glob.glob("**/index.html", recursive = True):
     static_path = str(path).split("/")[2:]
 
     commit = static_path[-2]
@@ -47,7 +48,7 @@ for branch in latests_by_branches:
     path = latests_by_branches[branch]
     page += "- " + link_tmpl.format(branch, "/".join(path)) + "\n"
 
-page += "# Former builds\n\n"
+page += "\n# Former builds\n\n"
 for branch in commits_by_branches:
     page += f"## Branch: {branch}\n\n"
 
