@@ -25,7 +25,7 @@ def get_commit_date(commit_sha):
 commits_by_branches = {}
 latests_by_branches = {}
 
-for path in glob.glob("**/index.html", recursive = True):
+for path in glob.glob(folder + "/**/index.html", recursive = True):
     static_path = str(path).split("/")[2:]
 
     commit = static_path[-2]
