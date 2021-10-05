@@ -73,7 +73,7 @@ jobs:
               mv _build/* site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
 
               # Clear previous build, and don't care if it doesn't exist
-              rm -fr site/content/games/${GIT_BRANCH}/latest
+              rm -fr site/content/games/${GIT_BRANCH}/latest && mkdir -p site/content/games/${GIT_BRANCH}/latest
               #TODO: I have trouble using ln, so for now I'll copy everything
               cp -r site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/* site/content/games/${GIT_BRANCH}/latest/
               tree site
